@@ -1,8 +1,16 @@
 import React from "react";
 
+import WelcomeSection from './welcomeSection'
+import ReviewsSection from './ReviewsSection'
+import ThanksSection from './ThanksSection'
+
 class LandingPage extends React.Component {
     render() {
-      return <h1>Olá</h1>;
+      return <>
+        <WelcomeSection/>
+        <ReviewsSection/>
+        <ThanksSection/>
+      </>;
     }
   }
 
