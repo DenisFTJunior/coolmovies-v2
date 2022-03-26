@@ -8,6 +8,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 
 import coolestMoviesTheme from "../style/config/theme";
+import Header from "../components/header";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -19,6 +20,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <ThemeProvider theme={coolestMoviesTheme}>
+        <Header />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

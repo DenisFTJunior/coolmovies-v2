@@ -8,7 +8,7 @@ class CustomDocument extends Document {
         <Head>
           <link
             rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+            href='https://fonts.googleapis.com/css?family=Inter:300,400,500,700&display=swap'
           />
         </Head>
         <body>

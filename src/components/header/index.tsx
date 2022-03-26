@@ -6,8 +6,15 @@ import React from "react";
 class Header extends React.Component {
   render() {
     return (
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography variant="h4">COOLESTMOVIES</Typography>
+      <Stack
+        sx={{ margin: "2rem 5rem" }}
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Typography fontWeight={900} variant="h6">
+          COOLESTMOVIES
+        </Typography>
         <Box>
           <Link href="/">
             <Button size="small">Home</Button>
