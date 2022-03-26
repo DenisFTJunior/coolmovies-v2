@@ -1,7 +1,10 @@
 import { Stack, Typography } from "@mui/material";
 import React from "react";
+import ReviewRepository from "../../repositories/review/ReviewRepository";
 
 class ReviewsSection extends React.Component {
+  reviewRepository = new ReviewRepository();
+
   render() {
     return (
       <Stack direction="column" justifyContent="center" alignItems="center">
@@ -11,7 +14,6 @@ class ReviewsSection extends React.Component {
         <Typography variant="body1" component="div">
           Tell they what you think!
         </Typography>
-        {/* add reviews card here after  */}
       </Stack>
     );
   }

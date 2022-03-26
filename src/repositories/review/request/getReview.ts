@@ -18,7 +18,7 @@ const REVIEW_BY_ID_QUERY = gql`
 
 const REVIEW_BY_NODE_ID_QUERY = gql`
   query MovieReview($id: ID!) {
-    movieReviewById(nodeId: $id) {
+    movieReview(nodeId: $id) {
       id
       body
       movieId

@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { UnformattedReview } from "../../../entities/review";
 
 import { moviesClient } from "../../config/movieClient";
 import { reviewsVars } from "./schema/reviewQuery";
@@ -26,6 +27,18 @@ const QUERY = gql`
         hasPreviousPage
       }
       reviews: nodes {
+        commentsByMovieReviewId {
+          totalCount
+          comments: nodes {
+            id
+            title
+            body
+          }
+        }
+        movie: movieByMovieId {
+          id
+          title
+        }
         body
         id
         nodeId
@@ -37,10 +50,8 @@ const QUERY = gql`
   }
 `;
 
-
-
 const getReviewsQuery = (vars: reviewsVars) =>
-  moviesClient.query({
+  moviesClient.query<UnformattedReview, reviewsVars>({
     query: QUERY,
     variables: vars,
     fetchPolicy: "network-only",
