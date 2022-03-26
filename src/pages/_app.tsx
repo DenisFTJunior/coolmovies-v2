@@ -1,4 +1,5 @@
 import "../style/globals.css";
+import "babel-polyfill";
 
 import type { AppProps } from "next/app";
 import React, { FC } from "react";
@@ -8,9 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import coolestMoviesTheme from "../style/config/theme";
 
-
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-
   return (
     <>
       <Head>
@@ -20,9 +19,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <ThemeProvider theme={coolestMoviesTheme}>
-
         <Component {...pageProps} />
-
       </ThemeProvider>
     </>
   );

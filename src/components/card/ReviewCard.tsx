@@ -21,19 +21,18 @@ class ReviewCard extends React.Component<props> {
       <Card
         sx={{
           minWidth: 275,
-          backgroundColor:
-            "linear-gradient(0deg, rgba(136,38,138,1) 25%, rgba(0,212,255,0) 100%);",
+          border: "5px solid #88268A",
         }}
       >
         <CardContent>
-          <Typography sx={{color:"white"}} variant="h5" component="div">
+          <Typography sx={{ color: "white" }} variant="h5" component="div">
             {this.props.title}
           </Typography>
-          <Typography sx={{color:"white"}} variant="h6" component="div">
+          <Typography sx={{ color: "white" }} variant="h6" component="div">
             {this.props.stars} Stars
           </Typography>
 
-          <Typography sx={{color:"white"}} variant="h6" component="div">
+          <Typography sx={{ color: "white" }} variant="h6" component="div">
             {this.props.movieName}
           </Typography>
           <Typography variant="body2">{this.props.body}</Typography>
@@ -46,7 +45,9 @@ class ReviewCard extends React.Component<props> {
             width: "100%",
           }}
         >
-          <Button sx={{color:"#002FA7"}} size="small">Show More</Button>
+          <Button sx={{ color: "#002FA7" }} size="small">
+            Show More
+          </Button>
         </CardActions>
       </Card>
     );

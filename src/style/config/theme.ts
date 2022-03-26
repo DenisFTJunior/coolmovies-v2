@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const coolestMoviesTheme = createTheme({
   palette: {
     primary: {
-      main: "#301553",
+      main: "#88268A",
       light: "#8D46E8",
       contrastText: "white",
     },
