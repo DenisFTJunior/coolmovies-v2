@@ -17,9 +17,19 @@ class ReviewsSection extends React.Component {
           <Typography variant="h4" component="div">
             Reviews by users
           </Typography>
-          <Typography sx={{marginLeft:'10%'}} variant="body1" component="div">
+          <Typography
+            sx={{ marginLeft: "10%" }}
+            variant="body1"
+            component="div"
+          >
             Tell they what you think!
           </Typography>
+
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          ></Stack>
         </Stack>
       </Box>
     );

@@ -8,11 +8,13 @@ import ThanksSection from "./ThanksSection";
 class LandingPage extends React.Component {
   render() {
     return (
-      <Box sx={{ margin: "0 5rem"}}>
-        <WelcomeSection />
-        <ReviewsSection />
+      <>
+        <Box sx={{ margin: "0 5rem" }}>
+          <WelcomeSection />
+          <ReviewsSection />
+        </Box>
         <ThanksSection />
-      </Box>
+      </>
     );
   }
 }

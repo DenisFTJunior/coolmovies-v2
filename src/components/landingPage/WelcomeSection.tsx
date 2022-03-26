@@ -23,7 +23,12 @@ class WelcomeSection extends React.Component {
               <Typography sx={{ width: "52%" }} variant="h4" component="div">
                 SHARE YOUR
               </Typography>
-              <Typography sx={{ width: "52%" }} noWrap variant="h4" component="div">
+              <Typography
+                sx={{ width: "52%" }}
+                noWrap
+                variant="h4"
+                component="div"
+              >
                 GOOD MOVIE STYLE
               </Typography>
               <Typography
@@ -38,12 +43,14 @@ class WelcomeSection extends React.Component {
                 sx={{
                   justifySelf: "flex-end",
                   width: "52%",
+                  height: "4rem",
                   marginTop: "4rem",
+                  borderRadius: "10px",
                 }}
                 size="large"
                 variant="contained"
               >
-                WRITE YOUR REVIEW
+                <Typography variant="button">WRITE YOUR REVIEW</Typography>
               </Button>
             </Stack>
           </Box>
