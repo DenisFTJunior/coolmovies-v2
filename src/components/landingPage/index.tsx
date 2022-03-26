@@ -1,6 +1,6 @@
 import React from "react";
 
-import WelcomeSection from './welcomeSection'
+import WelcomeSection from './WelcomeSection'
 import ReviewsSection from './ReviewsSection'
 import ThanksSection from './ThanksSection'
 
