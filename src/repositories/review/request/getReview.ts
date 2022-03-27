@@ -11,7 +11,21 @@ const REVIEW_BY_ID_QUERY = gql`
       movieId
       rating
       title
-      userReviewerId
+      movieByMovieId {
+        id
+        title
+      }
+      commentsByMovieReviewId {
+        nodes {
+          title
+          id
+          body
+          userByUserId {
+            name
+            id
+          }
+        }
+      }
     }
   }
 `;
@@ -24,7 +38,21 @@ const REVIEW_BY_NODE_ID_QUERY = gql`
       movieId
       rating
       title
-      userReviewerId
+      movieByMovieId {
+        id
+        title
+      }
+      commentsByMovieReviewId {
+        nodes {
+          title
+          id
+          body
+          userByUserId {
+            name
+            id
+          }
+        }
+      }
     }
   }
 `;

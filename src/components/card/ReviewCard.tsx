@@ -42,6 +42,7 @@ class ReviewCard extends React.Component<props> {
       <Card
         sx={{
           minWidth: 275,
+          minHeight: "20rem",
           border: "5px solid #88268A",
         }}
       >
