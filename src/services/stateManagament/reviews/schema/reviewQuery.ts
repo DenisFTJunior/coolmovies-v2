@@ -44,8 +44,6 @@ export type reviewsVars = {
 };
 
 export type ReviewVars = {
-  id?: string;
+  id?: string | string[];
   nodeId?: string;
-}
-
-
+};
