@@ -6,7 +6,7 @@ export type Review = {
 
   movie: {
     id: string;
-    title: String;
+    title: string;
   };
 
   comments: {

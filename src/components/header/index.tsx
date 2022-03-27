@@ -6,18 +6,18 @@ import React from "react";
 class Header extends React.Component {
   render() {
     return (
-      <AppBar position="sticky">
+      <AppBar sx={{ margin: "2rem 5%", width: "95%" }} position="sticky">
         <Toolbar variant="regular">
           <Stack
-            sx={{ margin: "2rem 5rem", width: "100%" }}
             direction="row"
             justifyContent="space-between"
             alignItems="center"
+            sx={{ width: "100%" }}
           >
             <Typography fontWeight={900} variant="h6">
               COOLESTMOVIES
             </Typography>
-            <Box>
+            <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
               <Link href="/">
                 <Button size="small" color="secondary">
                   Home

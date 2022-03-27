@@ -12,6 +12,7 @@ class WelcomeSection extends React.Component {
           direction="row"
           justifyContent="center"
           alignItems="center"
+          sx={{ direction: { xs: "column", sm: "column" } }}
           spacing={4}
         >
           <Box sx={{ flex: 1 }}>
@@ -20,14 +21,20 @@ class WelcomeSection extends React.Component {
               justifyContent="center"
               alignItems="flex-start"
             >
-              <Typography sx={{ width: "60%" }} variant="h4" component="div">
+              <Typography
+                sx={{ width: { sm: "90%", md: "80%", lg: "60%" } }}
+                variant="h4"
+                component="div"
+                fontWeight={700}
+              >
                 SHARE YOUR
               </Typography>
               <Typography
-                sx={{ width: "60%" }}
+                sx={{ width: { sm: "90%", md: "80%", lg: "60%" } }}
                 noWrap
                 variant="h4"
                 component="div"
+                fontWeight={700}
               >
                 GOOD MOVIE STYLE
               </Typography>
@@ -38,9 +45,9 @@ class WelcomeSection extends React.Component {
               <Button
                 sx={{
                   justifySelf: "flex-end",
-                  width: "60%",
+                  width: { xs: "90%", sm: "90%", md: "80%", lg: "60%" },
                   height: "4rem",
-                  marginTop: "4rem",
+                  marginTop: "10%",
                   borderRadius: "10px",
                 }}
                 size="large"
@@ -50,7 +57,9 @@ class WelcomeSection extends React.Component {
               </Button>
             </Stack>
           </Box>
-          <Box sx={{ flex: 1 }}>
+          <Box
+            sx={{ flex: 1, display: { xs: "none", sm: "none", md: "block" } }}
+          >
             <Image
               src={localImage}
               alt="Picture of local"

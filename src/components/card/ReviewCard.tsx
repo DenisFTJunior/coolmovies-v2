@@ -7,16 +7,37 @@ import {
 } from "@mui/material";
 import React from "react";
 
+import { Review } from "../../entities/review";
+
 type props = {
   children?: JSX.Element;
-  title: string;
-  body: string;
-  stars: number;
-  movieName: string;
+  review: Review;
 };
 
 class ReviewCard extends React.Component<props> {
   render() {
+    if (!this.props.review)
+      return (
+        <Card>
+          <CardContent>
+            <Typography sx={{ color: "white" }} variant="h5" component="div">
+              Be the first to register this review
+            </Typography>
+          </CardContent>
+          <CardActions
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
+              width: "100%",
+            }}
+          >
+            <Button sx={{ color: "#002FA7" }} size="small">
+              Register
+            </Button>
+          </CardActions>
+        </Card>
+      );
     return (
       <Card
         sx={{
@@ -26,16 +47,16 @@ class ReviewCard extends React.Component<props> {
       >
         <CardContent>
           <Typography sx={{ color: "white" }} variant="h5" component="div">
-            {this.props.title}
+            {this.props.review.title}
           </Typography>
           <Typography sx={{ color: "white" }} variant="h6" component="div">
-            {this.props.stars} Stars
+            {this.props.review.rating} Stars
           </Typography>
 
           <Typography sx={{ color: "white" }} variant="h6" component="div">
-            {this.props.movieName}
+            {this.props.review.movie.title}
           </Typography>
-          <Typography variant="body2">{this.props.body}</Typography>
+          <Typography variant="body2">{this.props.review.body}</Typography>
         </CardContent>
         <CardActions
           sx={{

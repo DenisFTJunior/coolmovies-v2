@@ -1,11 +1,9 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
-import ReviewRepository from "../../repositories/review/ReviewRepository";
+type LocalProps = {};
 
-class ReviewsSection extends React.Component {
-  reviewRepository = new ReviewRepository();
-
+class ReviewsSection extends React.Component<LocalProps> {
   render() {
     return (
       <Box sx={{ width: "100%", height: "100%" }}>
@@ -14,7 +12,7 @@ class ReviewsSection extends React.Component {
           justifyContent="center"
           alignItems="flex-start"
         >
-          <Typography variant="h4" component="div">
+          <Typography variant="h4" component="div" fontWeight={700}>
             Reviews by users
           </Typography>
           <Typography
@@ -29,6 +27,7 @@ class ReviewsSection extends React.Component {
             direction="row"
             justifyContent="center"
             alignItems="center"
+            flexWrap="wrap"
           ></Stack>
         </Stack>
       </Box>

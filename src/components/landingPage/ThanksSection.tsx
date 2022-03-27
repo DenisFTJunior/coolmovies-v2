@@ -15,7 +15,7 @@ class ThanksSection extends React.Component {
         }}
       >
         <Typography mb={2} color="white" align="center" variant="body2" component="div">
-          THANKS FOR VISITING YOUR WEBSITE, HE DESIRE WHO YOU ENJOYED IT
+          THANKS FOR VISITING YOUR WEBSITE, WE DESIRE YOU ENJOYED IT
         </Typography>
       </Stack>
     );
