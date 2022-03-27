@@ -1,6 +1,8 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
+import ReviewCards from "./ReviewCards";
+
 type LocalProps = {};
 
 class ReviewsSection extends React.Component<LocalProps> {
@@ -15,20 +17,11 @@ class ReviewsSection extends React.Component<LocalProps> {
           <Typography variant="h4" component="div" fontWeight={700}>
             Reviews by users
           </Typography>
-          <Typography
-            sx={{ marginLeft: "10%" }}
-            variant="body1"
-            component="div"
-          >
+          <Typography variant="body1" component="div">
             Tell they what you think!
           </Typography>
 
-          <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            flexWrap="wrap"
-          ></Stack>
+          <ReviewCards />
         </Stack>
       </Box>
     );

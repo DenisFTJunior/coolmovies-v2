@@ -7,12 +7,13 @@ import {
 } from "./schema/reviewMutation";
 import { reviewsVars, ReviewVars } from "./schema/reviewQuery";
 import {
+  Review,
   UnformattedReview,
   UnformattedReviews,
 } from "../../../entities/review";
 
 interface InitialState {
-  fetchedReview?: UnformattedReviews | UnformattedReview | undefined;
+  fetchedReview?: Review[] | Review | undefined;
   error?: string | undefined;
 }
 
@@ -45,7 +46,7 @@ export const reviewSlice = createSlice({
     loadedReview: (
       state,
       action: PayloadAction<{
-        data: UnformattedReviews | UnformattedReview | undefined;
+        data: Review[] | Review | undefined;
       }>
     ) => {
       state.fetchedReview = action.payload.data;

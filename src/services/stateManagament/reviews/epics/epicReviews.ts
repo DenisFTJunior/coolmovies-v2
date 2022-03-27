@@ -5,6 +5,7 @@ import { Epic, StateObservable } from "redux-observable";
 import { RootState } from "../../config/schema/store";
 import { ReviewSliceAction, actions } from "../reviewSlice";
 import ReviewRepository from "../../../../repositories/review/ReviewRepository";
+import reviewsFormmatter from "../../../formatters/reviewFormatter";
 
 export const epicFetchReviews: Epic = (
   action$: Observable<ReviewSliceAction["fetchReviews"]>,
@@ -17,7 +18,7 @@ export const epicFetchReviews: Epic = (
       const { data, error } = await repository.getMany(action.payload.vars);
       if (error)
         return actions.loadReviewError({ error: "Sorry, cannot fetch data" });
-      return actions.loadedReview({ data });
+      return actions.loadedReview({ data: reviewsFormmatter(data) });
     })
   );
 };

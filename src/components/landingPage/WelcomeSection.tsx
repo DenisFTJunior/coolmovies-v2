@@ -22,7 +22,7 @@ class WelcomeSection extends React.Component {
               alignItems="flex-start"
             >
               <Typography
-                sx={{ width: { sm: "90%", md: "80%", lg: "60%" } }}
+                sx={{ width: { sm: "90%", md: "80%", lg: "70%" } }}
                 variant="h4"
                 component="div"
                 fontWeight={700}
@@ -30,7 +30,7 @@ class WelcomeSection extends React.Component {
                 SHARE YOUR
               </Typography>
               <Typography
-                sx={{ width: { sm: "90%", md: "80%", lg: "60%" } }}
+                sx={{ width: { sm: "90%", md: "80%", lg: "70%" } }}
                 noWrap
                 variant="h4"
                 component="div"
@@ -45,7 +45,7 @@ class WelcomeSection extends React.Component {
               <Button
                 sx={{
                   justifySelf: "flex-end",
-                  width: { xs: "90%", sm: "90%", md: "80%", lg: "60%" },
+                  width: { xs: "90%", sm: "90%", md: "80%", lg: "70%" },
                   height: "4rem",
                   marginTop: "10%",
                   borderRadius: "10px",

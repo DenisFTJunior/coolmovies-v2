@@ -11,16 +11,23 @@ import { Review } from "../../entities/review";
 
 type props = {
   children?: JSX.Element;
-  review: Review;
+  review: Review | undefined;
 };
 
 class ReviewCard extends React.Component<props> {
   render() {
     if (!this.props.review)
       return (
-        <Card>
+        <Card
+          sx={{
+            minWidth: 275,
+            minHeight: "20rem",
+            border: "5px solid #88268A",
+            borderRadius: "10px",
+          }}
+        >
           <CardContent>
-            <Typography sx={{ color: "white" }} variant="h5" component="div">
+            <Typography sx={{ color: "black" }} variant="h6" component="div">
               Be the first to register this review
             </Typography>
           </CardContent>
@@ -30,6 +37,7 @@ class ReviewCard extends React.Component<props> {
               justifyContent: "center",
               alignContent: "center",
               width: "100%",
+              height: "100%",
             }}
           >
             <Button sx={{ color: "#002FA7" }} size="small">
@@ -44,17 +52,18 @@ class ReviewCard extends React.Component<props> {
           minWidth: 275,
           minHeight: "20rem",
           border: "5px solid #88268A",
+          borderRadius: "10px",
         }}
       >
         <CardContent>
-          <Typography sx={{ color: "white" }} variant="h5" component="div">
+          <Typography sx={{ color: "black" }} variant="h5" component="div">
             {this.props.review.title}
           </Typography>
-          <Typography sx={{ color: "white" }} variant="h6" component="div">
+          <Typography sx={{ color: "black" }} variant="h6" component="div">
             {this.props.review.rating} Stars
           </Typography>
 
-          <Typography sx={{ color: "white" }} variant="h6" component="div">
+          <Typography sx={{ color: "black" }} variant="h6" component="div">
             {this.props.review.movie.title}
           </Typography>
           <Typography variant="body2">{this.props.review.body}</Typography>
