@@ -1,19 +1,15 @@
+import { Comment } from "./comment";
+import { Movie } from "./movie";
+
 export type Review = {
   id: string;
   title: string;
   body: string;
   rating: number;
 
-  movie: {
-    id: string;
-    title: string;
-  };
+  movie: Movie;
 
-  comments: {
-    id: string;
-    title: string;
-    body: string;
-  }[];
+  comments: Comment[];
 };
 
 export type UnformattedReviews = {
@@ -30,10 +26,7 @@ export type UnformattedReviews = {
         title: string;
         body: string;
         rating: number;
-        movie: {
-          id: string;
-          title: string;
-        };
+        movie: Movie;
       }
     ];
   };
@@ -46,18 +39,11 @@ export type UnformattedReview = {
     title: string;
     body: string;
     rating: number;
-    movie: {
-      id: string;
-      title: string;
-    };
+
+    movie: Movie;
+
     commentsQuery: {
-      comments: [
-        {
-          id: string;
-          title: string;
-          body: string;
-        }
-      ];
+      comments: Comment[];
     };
   };
 };

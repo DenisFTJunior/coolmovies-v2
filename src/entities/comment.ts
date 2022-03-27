@@ -3,7 +3,7 @@ export type Comment = {
   title: string;
   body: Date;
 
-  user: {
+  user?: {
     id: string;
     name: string;
   };
