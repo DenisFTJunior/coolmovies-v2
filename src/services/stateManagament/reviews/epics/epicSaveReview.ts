@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 import { filter, switchMap } from "rxjs/operators";
 
 import { Epic, StateObservable } from "redux-observable";
-import { RootState } from "../schema/store";
+import { RootState } from "../../config/schema/store";
 import { ReviewSliceAction, actions } from "../reviewSlice";
 import ReviewRepository from "../../../../repositories/review/ReviewRepository";
 
