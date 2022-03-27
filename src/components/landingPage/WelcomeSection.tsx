@@ -18,31 +18,27 @@ class WelcomeSection extends React.Component {
             <Stack
               direction="column"
               justifyContent="center"
-              alignItems="center"
+              alignItems="flex-start"
             >
-              <Typography sx={{ width: "52%" }} variant="h4" component="div">
+              <Typography sx={{ width: "60%" }} variant="h4" component="div">
                 SHARE YOUR
               </Typography>
               <Typography
-                sx={{ width: "52%" }}
+                sx={{ width: "60%" }}
                 noWrap
                 variant="h4"
                 component="div"
               >
                 GOOD MOVIE STYLE
               </Typography>
-              <Typography
-                sx={{ marginLeft: "-10%" }}
-                variant="body1"
-                component="div"
-              >
+              <Typography variant="body1" component="div">
                 {" "}
                 Write. Read. Share Reviews
               </Typography>
               <Button
                 sx={{
                   justifySelf: "flex-end",
-                  width: "52%",
+                  width: "60%",
                   height: "4rem",
                   marginTop: "4rem",
                   borderRadius: "10px",

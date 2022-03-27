@@ -4,13 +4,11 @@ const coolestMoviesTheme = createTheme({
   palette: {
     primary: {
       main: "#88268A",
-      light: "#8D46E8",
       contrastText: "white",
     },
     secondary: {
-      main: "#0D541F",
-      light: "#20A142",
-      contrastText: "white",
+      main: "#fff",
+      contrastText: "black",
     },
   },
 });
