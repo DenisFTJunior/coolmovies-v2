@@ -16,7 +16,7 @@ export type Review = {
   }[];
 };
 
-export type UnformattedReview = {
+export type UnformattedReviews = {
   allMovieReviews: {
     totalCount: number;
     pageInfo: {
@@ -25,25 +25,39 @@ export type UnformattedReview = {
     };
     reviews: [
       {
-        body: string;
         id: string;
         nodeId: string;
-        rating: number;
         title: string;
+        body: string;
+        rating: number;
         movie: {
           id: string;
           title: string;
         };
-        commentsByMovieReviewId: {
-          comments: [
-            {
-              id: string;
-              title: string;
-              body: string;
-            }
-          ];
-        };
       }
     ];
+  };
+};
+
+export type UnformattedReview = {
+  movieReview: {
+    id: string;
+    nodeId: string;
+    title: string;
+    body: string;
+    rating: number;
+    movie: {
+      id: string;
+      title: string;
+    };
+    commentsQuery: {
+      comments: [
+        {
+          id: string;
+          title: string;
+          body: string;
+        }
+      ];
+    };
   };
 };

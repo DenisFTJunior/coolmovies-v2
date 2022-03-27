@@ -38,12 +38,12 @@ const REVIEW_BY_NODE_ID_QUERY = gql`
       movieId
       rating
       title
-      movieByMovieId {
+      movie: movieByMovieId {
         id
         title
       }
-      commentsByMovieReviewId {
-        nodes {
+      commentsQuery: commentsByMovieReviewId {
+        comments: nodes {
           title
           id
           body
