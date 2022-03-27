@@ -9,7 +9,7 @@ export type Review = {
 
   movie: Movie;
 
-  comments: Comment[];
+  comments?: Comment[];
 };
 
 export type UnformattedReviews = {
