@@ -22,12 +22,13 @@ const useReviews = (vars: reviewsVars) => {
 
 export default useReviews;
 
-export const useReview = (id: string) => {
+export const useReview = (id: string | string[]) => {
   const dispatch = useStateDispatch();
   const { fetchReview } = reviewActions;
   const stateReview = useStateSelector((state) => state.review);
 
-  const action = (v: string) => dispatch(fetchReview({ vars: { id: v } }));
+  const action = (v: string | string[]) =>
+    dispatch(fetchReview({ vars: { id: v } }));
 
   useEffect(() => {
     action(id);
