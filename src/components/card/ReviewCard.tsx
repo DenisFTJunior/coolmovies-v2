@@ -22,26 +22,34 @@ class ReviewCard extends React.Component<props> {
           sx={{
             minWidth: 275,
             minHeight: "20rem",
-            border: "5px solid #88268A",
+            boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
             borderRadius: "10px",
+            marginX: { xs: "2rem", sm: "2rem", md: "2rem" },
+            marginY:"1rem",
+            padding:"1%"
           }}
         >
-          <CardContent>
+          <CardContent
+            sx={{
+              minHeight: "16rem",
+            }}
+          >
             <Typography sx={{ color: "black" }} variant="h6" component="div">
-              Be the first to register this review
+              Review not Created Yet :(
+            </Typography>
+            <Typography sx={{ color: "black" }} variant="body2" component="div">
+              Maybe you can create? :)
             </Typography>
           </CardContent>
           <CardActions
             sx={{
               display: "flex",
               justifyContent: "center",
-              alignContent: "center",
-              width: "100%",
-              height: "100%",
+              alignContent: "flex-end",
             }}
           >
-            <Button sx={{ color: "#002FA7" }} size="small">
-              Register
+            <Button sx={{ width: "100%" }} variant="outlined" size="small">
+              Write
             </Button>
           </CardActions>
         </Card>
@@ -51,7 +59,7 @@ class ReviewCard extends React.Component<props> {
         sx={{
           minWidth: 275,
           minHeight: "20rem",
-          border: "5px solid #88268A",
+          boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
           borderRadius: "10px",
         }}
       >

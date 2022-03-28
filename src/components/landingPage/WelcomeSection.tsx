@@ -7,7 +7,7 @@ import localImage from "../../../public/localImage.png";
 class WelcomeSection extends React.Component {
   render() {
     return (
-      <Box sx={{ width: "100%", height: "90vh" }}>
+      <Box sx={{ width: "100%", height: { xs: "50vh",sm: "50vh", md: "90vh" } }}>
         <Stack
           direction="row"
           justifyContent="center"

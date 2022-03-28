@@ -12,7 +12,7 @@ class ReviewsSection extends React.Component<LocalProps> {
         direction="column"
         justifyContent="center"
         alignItems="flex-start"
-        sx={{ width: "100%", height: "100%" }}
+        sx={{ width: "100%", height: { xs: "80rem", sm: "80rem", md: "100%" } }}
       >
         <Typography variant="h4" component="div" fontWeight={700}>
           Reviews by users

@@ -9,17 +9,16 @@ import useReviews from "../../services/stateManagament/reviews/helpers/useReview
 const ReviewCards = () => {
   const [reviews] = useReviews({});
 
-  console.log("reviews", reviews);
-
   return (
     <Stack
       direction="row"
       justifyContent="center"
       alignItems="center"
       flexWrap="wrap"
-      mt={4}
-      sx={{ width: "100%" }}
-      spacing={4}
+      sx={{
+        width: "100%",
+        marginY:"2rem"
+      }}
     >
       {reviews?.map((review: Review) => {
         <ReviewCard key={`${review.title}-${review.id}`} review={review} />;
