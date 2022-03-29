@@ -16,7 +16,7 @@ export const epicFetchReviews: Epic = (
   return action$.pipe(
     filter(actions.fetchReviews.match),
     switchMap(async (action) => {
-      const { data, error } = await repository.getMany(action.payload.vars);
+      const { data, error } = await repository.getMany(action.payload);
       if (error)
         return actions.loadReviewError({ error: "Sorry, cannot fetch data" });
       return actions.loadedReview({ data: formatter.many(data) });
