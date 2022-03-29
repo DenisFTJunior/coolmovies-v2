@@ -12,6 +12,15 @@ export type Review = {
   comments?: Comment[];
 };
 
+export type FormReview = {
+  id?: string;
+  title?: string;
+  body?: string;
+  rating?: number;
+
+  movie?: Movie;
+};
+
 export type UnformattedReviews = {
   allMovieReviews: {
     totalCount: number;

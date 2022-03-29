@@ -2,20 +2,21 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import {
   DeleteReviewVars,
-  UpdateReviewVars,
   SaveReviewInput,
   UpdateReviewInput,
 } from "./schema/reviewMutation";
 import { reviewsVars, ReviewVars } from "./schema/reviewQuery";
-import { Review } from "../../../entities/review";
+import { FormReview, Review } from "../../../entities/review";
 
 interface InitialState {
   fetchedReview?: Review[] | Review | undefined;
   error?: string | undefined;
+  form: Object;
 }
 
 const initialState: InitialState = {
   fetchedReview: undefined,
+  form: {},
 };
 
 export const reviewSlice = createSlice({
@@ -30,6 +31,7 @@ export const reviewSlice = createSlice({
     clearReviewData: (state) => {
       state.fetchedReview = undefined;
       state.error = undefined;
+      state.form = {};
     },
     processedRequest: (state) => {
       state.error = undefined;
@@ -44,6 +46,9 @@ export const reviewSlice = createSlice({
     },
     loadReviewError: (state, action: PayloadAction<{ error: string }>) => {
       state.error = action.payload.error;
+    },
+    fillform: (state, action: PayloadAction<FormReview>) => {
+      state.form = { ...state.form, ...action.payload };
     },
   },
 });
