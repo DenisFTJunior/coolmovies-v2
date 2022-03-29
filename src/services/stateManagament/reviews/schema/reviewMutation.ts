@@ -1,7 +1,3 @@
-export type SaveReviewInput = {
-  input: SaveReviewVars;
-};
-
 export type SaveReviewVars = {
   movieReview: {
     title: string;
@@ -10,10 +6,6 @@ export type SaveReviewVars = {
     rating: number;
     body: string;
   };
-};
-
-export type UpdateReviewInput = {
-  input: UpdateReviewVars;
 };
 
 export type UpdateReviewVars = {
