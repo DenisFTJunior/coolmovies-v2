@@ -11,7 +11,7 @@ const useReviews = (vars: reviewsVars) => {
   const stateReview = useStateSelector((state) => state.review);
 
   const action = (v: reviewsVars = {}) =>
-    dispatch(fetchReviews({ vars: { first: 10, ...v, ...vars } }));
+    dispatch(fetchReviews({ ...vars, ...v }));
 
   useEffect(() => {
     action();
@@ -27,8 +27,7 @@ export const useReview = (id: string | string[]) => {
   const { fetchReview } = reviewActions;
   const stateReview = useStateSelector((state) => state.review);
 
-  const action = (v: string | string[]) =>
-    dispatch(fetchReview({ vars: { id: v } }));
+  const action = (v: string | string[]) => dispatch(fetchReview({ id: v }));
 
   useEffect(() => {
     action(id);
