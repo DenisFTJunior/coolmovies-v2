@@ -1,23 +1,45 @@
 export type SaveReviewVars = {
-  movieReview: {
-    title: string;
-    movieId: string;
-    userReviewerId: string;
-    rating: number;
-    body: string;
+  input: {
+    movieReview: {
+      title: string;
+      movieId: string;
+      userReviewerId: string;
+      rating: number;
+      body: string;
+    };
   };
 };
 
+export type SaveReviewInput = {
+  title: string;
+  movieId: string;
+  userReviewerId: string;
+  rating: number;
+  body: string;
+};
+
 export type UpdateReviewVars = {
+  input: {
+    id?: string;
+    nodeId?: string;
+    movieReviewPatch: {
+      title: string;
+      movieId: string;
+      userReviewerId?: string;
+      rating: number;
+      body: string;
+    };
+  };
+};
+
+export type UpdateReviewInput = {
   id?: string;
   nodeId?: string;
-  movieReviewPatch: {
-    title: string;
-    movieId: string;
-    userReviewerId: string;
-    rating: number;
-    body: string;
-  };
+  title: string;
+  movieId: string;
+  userId?: string;
+  rating: number;
+  body: string;
 };
 
 export type DeleteReviewInput = {
