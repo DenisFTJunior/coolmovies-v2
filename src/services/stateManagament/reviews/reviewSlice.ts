@@ -3,14 +3,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   DeleteReviewVars,
   UpdateReviewVars,
-  SaveReviewVars,
+  SaveReviewInput,
+  UpdateReviewInput,
 } from "./schema/reviewMutation";
 import { reviewsVars, ReviewVars } from "./schema/reviewQuery";
-import {
-  Review,
-  UnformattedReview,
-  UnformattedReviews,
-} from "../../../entities/review";
+import { Review } from "../../../entities/review";
 
 interface InitialState {
   fetchedReview?: Review[] | Review | undefined;
@@ -25,17 +22,11 @@ export const reviewSlice = createSlice({
   initialState,
   name: "review",
   reducers: {
-    fetchReview: (state, action: PayloadAction<{ vars: ReviewVars }>) => {},
-    fetchReviews: (state, action: PayloadAction<{ vars: reviewsVars }>) => {},
-    saveReview: (state, action: PayloadAction<{ vars: SaveReviewVars }>) => {},
-    deleteReview: (
-      state,
-      action: PayloadAction<{ vars: DeleteReviewVars }>
-    ) => {},
-    updateReview: (
-      state,
-      action: PayloadAction<{ vars: UpdateReviewVars }>
-    ) => {},
+    fetchReview: (state, action: PayloadAction<ReviewVars>) => {},
+    fetchReviews: (state, action: PayloadAction<reviewsVars>) => {},
+    saveReview: (state, action: PayloadAction<SaveReviewInput>) => {},
+    deleteReview: (state, action: PayloadAction<DeleteReviewVars>) => {},
+    updateReview: (state, action: PayloadAction<UpdateReviewInput>) => {},
     clearReviewData: (state) => {
       state.fetchedReview = undefined;
       state.error = undefined;

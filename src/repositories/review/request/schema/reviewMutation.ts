@@ -17,7 +17,7 @@ export type UpdateReviewVars = {
     movieReviewPatch: {
       title: string;
       movieId: string;
-      userReviewerId: string;
+      userReviewerId?: string;
       rating: number;
       body: string;
     };

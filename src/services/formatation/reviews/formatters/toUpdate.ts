@@ -3,7 +3,7 @@ import { assoc, compose, dissoc, pick } from "ramda";
 import {
   UpdateReviewInput,
   UpdateReviewOutput,
-} from "../../schema/reviews/update";
+} from "../schema/update";
 
 export const toUpdate = (input: UpdateReviewInput): UpdateReviewOutput => {
   if (!input.id || !input.nodeId)

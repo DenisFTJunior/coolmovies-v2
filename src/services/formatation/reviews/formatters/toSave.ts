@@ -1,4 +1,4 @@
-import { SaveReviewInput, SaveReviewOutput } from "../../schema/reviews/save";
+import { SaveReviewInput, SaveReviewOutput } from "../schema/save";
 
 export const toSave = (input: SaveReviewInput): SaveReviewOutput => {
   return {
