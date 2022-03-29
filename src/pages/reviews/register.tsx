@@ -1,5 +1,6 @@
 import { Stack, TextField } from "@mui/material";
 import React from "react";
+import NumberInput from "../../components/form/NumberInput";
 
 class RegisterReview extends React.Component {
   render() {
@@ -11,9 +12,11 @@ class RegisterReview extends React.Component {
         sx={{ marginX: "5%" }}
       >
         <TextField label="Title" variant="outlined" sx={{ width: "100%" }} />
-        
+
+        <NumberInput max={5} onChange={(value) => {}} />
+
         <TextField
-          label="Comment"
+          label="body"
           variant="outlined"
           sx={{ width: "100%" }}
           rows={4}
