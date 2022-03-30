@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import WelcomeSection from "./WelcomeSection";
 import ReviewsSection from "./ReviewsSection";
 import ThanksSection from "./ThanksSection";
+import { Review } from "../../entities/review";
 
 class LandingPage extends React.Component {
   render() {

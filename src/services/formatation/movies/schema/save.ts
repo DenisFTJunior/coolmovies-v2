@@ -1,11 +1,9 @@
 export type SaveMovieOutput = {
-  input: {
-    movie: {
-      movieDirectorId?: string;
-      releaseDate: string;
-      title: string;
-      userCreatorId?: string;
-    };
+  movie: {
+    movieDirectorId?: string;
+    releaseDate: string;
+    title: string;
+    userCreatorId?: string;
   };
 };
 

@@ -1,9 +1,6 @@
 import { assoc, compose, dissoc, pick } from "ramda";
 
-import {
-  UpdateReviewInput,
-  UpdateReviewOutput,
-} from "../schema/update";
+import { UpdateReviewInput, UpdateReviewOutput } from "../schema/update";
 
 export const toUpdate = (input: UpdateReviewInput): UpdateReviewOutput => {
   if (!input.id || !input.nodeId)
@@ -15,15 +12,13 @@ export const toUpdate = (input: UpdateReviewInput): UpdateReviewOutput => {
   )({});
 
   return {
-    input: {
-      ...cleanId,
-      movieReviewPatch: {
-        title: input.title,
-        body: input.body,
-        movieId: input.movieId,
-        rating: input.rating,
-        userReviewerId: input.userId,
-      },
+    ...cleanId,
+    movieReviewPatch: {
+      title: input.title,
+      body: input.body,
+      movieId: input.movieId,
+      rating: input.rating,
+      userReviewerId: input.userId,
     },
   };
 };

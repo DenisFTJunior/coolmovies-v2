@@ -3,9 +3,7 @@ import React from "react";
 
 import ReviewCards from "./ReviewCards";
 
-type LocalProps = {};
-
-class ReviewsSection extends React.Component<LocalProps> {
+class ReviewsSection extends React.Component {
   render() {
     return (
       <Stack

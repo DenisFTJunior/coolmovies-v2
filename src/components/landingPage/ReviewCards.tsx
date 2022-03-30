@@ -17,7 +17,7 @@ const ReviewCards = () => {
       flexWrap="wrap"
       sx={{
         width: "100%",
-        marginY:"2rem"
+        marginY: "2rem",
       }}
     >
       {reviews?.map((review: Review) => {
