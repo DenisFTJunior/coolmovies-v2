@@ -4,10 +4,23 @@ import React, { ChangeEventHandler } from "react";
 type LocalProps = {
   max?: number;
   min?: number;
+  sx: Object;
   onChange: (v: number) => void;
 };
 
-class NumberInput extends React.Component<LocalProps> {
+type LocalState = {
+  localValue?: number;
+};
+
+class NumberInput extends React.Component<LocalProps, LocalState> {
+  constructor(props: LocalProps) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.replaceValue = this.replaceValue.bind(this);
+
+    this.state = { localValue: 0 };
+  }
+
   replaceValue(value: number) {
     if (this.props.max !== undefined && value > this.props.max)
       return this.props.max;
@@ -17,6 +30,7 @@ class NumberInput extends React.Component<LocalProps> {
   }
 
   handleChange(event: any) {
+    this.setState({localValue:this.replaceValue(event.target.value) })
     this.props.onChange(this.replaceValue(event.target.value));
   }
 
@@ -25,7 +39,8 @@ class NumberInput extends React.Component<LocalProps> {
       <TextField
         label="Rating"
         variant="outlined"
-        sx={{ width: "50%" }}
+        sx={this.props.sx}
+        value={this.state.localValue}
         type="number"
         InputLabelProps={{
           shrink: true,
