@@ -87,9 +87,11 @@ class ReviewCard extends React.Component<props> {
             width: "100%",
           }}
         >
-          <Button sx={{ color: "#002FA7" }} size="small">
-            Show More
-          </Button>
+          <Link href={`/reviews/id=${this.props.review.id}`}>
+            <Button sx={{ color: "#002FA7" }} size="small">
+              Show More
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     );
