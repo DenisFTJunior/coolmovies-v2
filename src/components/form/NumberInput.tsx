@@ -30,7 +30,7 @@ class NumberInput extends React.Component<LocalProps, LocalState> {
   }
 
   handleChange(event: any) {
-    this.setState({localValue:this.replaceValue(event.target.value) })
+    this.setState({ localValue: this.replaceValue(event.target.value) });
     this.props.onChange(this.replaceValue(event.target.value));
   }
 
