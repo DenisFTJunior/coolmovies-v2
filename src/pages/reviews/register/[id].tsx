@@ -3,10 +3,10 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 import StarIcon from "@mui/icons-material/Star";
 import { useRouter } from "next/router";
 
-import { Review } from "../../entities/review";
-import { useReview } from "../../services/stateManagament/reviews/helpers/useReviews";
-import IconText from "../../components/presenters/IconText";
-import CommentsSection from "../../components/comments/CommentsSection";
+import { Review } from "../../../entities/review";
+import { useReview } from "../../../services/stateManagament/reviews/helpers/useReviews";
+import IconText from "../../../components/presenters/IconText";
+import CommentsSection from "../../../components/comments/CommentsSection";
 
 const Review = (): JSX.Element | undefined => {
   const router = useRouter();
@@ -15,7 +15,6 @@ const Review = (): JSX.Element | undefined => {
   const [review] = useReview(id);
 
   if (!review) return <Typography variant="h4"></Typography>;
-  
   return (
     <>
       <Stack

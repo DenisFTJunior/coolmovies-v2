@@ -18,7 +18,7 @@ export type FormReview = {
   body?: string;
   rating?: number;
 
-  movie?: Movie;
+  movieId?: string;
 };
 
 export type UnformattedReviews = {
