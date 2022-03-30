@@ -4,10 +4,12 @@ import { combineEpics, createEpicMiddleware, Epic } from "redux-observable";
 import { moviesClient } from "../../../repositories/config/movieClient";
 //Reducers
 import reviewReducer from "../reviews/reviewSlice";
+import movieReducer from "../movies/movieSlice";
 //Epics
 import reviewEpics from "../reviews/reviewEpics";
+import movieEpics from "../movies/movieEpics";
 
-const rootEpic = combineEpics(reviewEpics);
+const rootEpic = combineEpics(reviewEpics, movieEpics);
 
 const movieStore = (): EnhancedStore => {
   const epicMiddleware = createEpicMiddleware({
@@ -20,6 +22,7 @@ const movieStore = (): EnhancedStore => {
 
     reducer: {
       review: reviewReducer,
+      movie: movieReducer,
     },
   });
 

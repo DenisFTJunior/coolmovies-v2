@@ -9,7 +9,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  fetchedMovies: undefined,
+  fetchedMovies: [],
 };
 
 export const movieSlice = createSlice({
@@ -19,7 +19,7 @@ export const movieSlice = createSlice({
     fetchMovies: (state, action: PayloadAction<MoviesVars>) => {},
     saveMovie: (state, action: PayloadAction<SaveMovieInput>) => {},
     clearMovieData: (state) => {
-      state.fetchedMovies = undefined;
+      state.fetchedMovies = [];
       state.error = undefined;
     },
     loadedMovie: (
