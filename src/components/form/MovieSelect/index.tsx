@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useState } from "react";
 
 import { Movie } from "../../../entities/movie";
-import useMovies from "../../../services/stateManagament/movies/helpers/useReviews";
+import useMovies from "../../../services/stateManagament/movies/helpers/useMovies";
 
 type LocalProps = {
   onChange: (v: number) => void;

@@ -5,6 +5,7 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 import { Review } from "../../entities/review";
@@ -25,8 +26,8 @@ class ReviewCard extends React.Component<props> {
             boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
             borderRadius: "10px",
             marginX: { xs: "2rem", sm: "2rem", md: "2rem" },
-            marginY:"1rem",
-            padding:"1%"
+            marginY: "1rem",
+            padding: "1%",
           }}
         >
           <CardContent
@@ -48,9 +49,11 @@ class ReviewCard extends React.Component<props> {
               alignContent: "flex-end",
             }}
           >
-            <Button sx={{ width: "100%" }} variant="outlined" size="small">
-              Write
-            </Button>
+            <Link href="/reviews/register">
+              <Button sx={{ width: "100%" }} variant="outlined" size="small">
+                Write
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       );
