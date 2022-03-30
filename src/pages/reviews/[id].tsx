@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import StarIcon from "@mui/icons-material/Star";
 import { useRouter } from "next/router";
@@ -15,7 +15,7 @@ const Review = (): JSX.Element | undefined => {
   const [review] = useReview(id);
 
   if (!review) return <Typography variant="h4"></Typography>;
-  
+
   return (
     <>
       <Stack
@@ -33,7 +33,9 @@ const Review = (): JSX.Element | undefined => {
           alignItems="center"
           sx={{ padding: "5%", border: "1px solid black", maxHeight: "70%" }}
         >
-          <Typography variant="h5">{review.body}</Typography>
+          <Box sx={{ padding: "5%", border: "1px solid black" }}>
+            <Typography variant="body2">{review.body}</Typography>
+          </Box>
         </Stack>
       </Stack>
       <CommentsSection comments={review.comments} />
