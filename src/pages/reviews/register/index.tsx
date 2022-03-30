@@ -7,13 +7,13 @@ import NumberInput from "../../../components/form/NumberInput";
 import { FormReview } from "../../../entities/review";
 import { useStateDispatch } from "../../../services/stateManagament/config/useDispatch";
 import { useStateSelector } from "../../../services/stateManagament/config/useSelector";
-import { actions as movieActions } from "../../../services/stateManagament/reviews/reviewSlice";
+import { actions as reviewActions } from "../../../services/stateManagament/reviews/reviewSlice";
 
 const RegisterReview = () => {
   const [error, setError] = useState<undefined | { message: string }>(
     undefined
   );
-  const { fillform, saveReview } = movieActions;
+  const { fillform, saveReview } = reviewActions;
   const { form } = useStateSelector((state) => state.review);
   const dispatch = useStateDispatch();
   const router = useRouter();
