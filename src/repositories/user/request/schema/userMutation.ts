@@ -1,7 +1,5 @@
 export type SaveUserVars = {
-  input:{
-    user: {
-      name?: string;
-    };
-  }
+  user: {
+    name?: string;
+  };
 };
