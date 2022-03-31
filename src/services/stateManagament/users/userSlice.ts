@@ -4,8 +4,8 @@ import { UsersVars } from "../../../repositories/user/request/schema/userQuery";
 import { SaveUserInput } from "../../formatation/users/schema/save";
 
 interface InitialState {
-  fetchedUsers?: User | User[] ;
-  error?: string ;
+  fetchedUsers?: User | User[];
+  error?: string;
 }
 
 const initialState: InitialState = {

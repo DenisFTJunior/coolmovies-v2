@@ -15,9 +15,9 @@ const useUsers = (vars: UsersVars) => {
     action();
   }, []);
 
-  const stateMovie = useStateSelector((state) => state.movie);
+  const stateUsers = useStateSelector((state) => state.user);
 
-  return [stateMovie.fetchedUsers, action, stateMovie];
+  return [stateUsers.fetchedUsers, action, stateUsers];
 };
 
 export default useUsers;

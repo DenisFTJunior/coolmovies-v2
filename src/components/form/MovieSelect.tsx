@@ -8,35 +8,37 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import useUsers from "../../services/stateManagament/users/helpers/useUsers";
+import useMovies from "../../services/stateManagament/movies/helpers/useMovies";
 
-const filter = createFilterOptions<UserOption>();
+const filter = createFilterOptions<MovieOption>();
 
-export default function UserSelect({
+export default function MovieSelect({
   onChange,
   sx,
 }: {
   onChange: (v?: string) => void;
   sx: Object;
 }) {
-  const [value, setValue] = React.useState<UserOption | null>(null);
+  const [value, setValue] = React.useState<MovieOption | null>(null);
   const [open, toggleOpen] = React.useState(false);
-  const [users, reload] = useUsers({});
+  const [movies, reload] = useMovies({});
 
   const handleClose = () => {
     setDialogValue({
-      name: "",
+      title: "",
+      releaseDate: "",
     });
     toggleOpen(false);
   };
 
-  const [dialogValue, setDialogValue] = React.useState({
-    name: "",
+  const [dialogValue, setDialogValue] = React.useState<MovieOption>({
+    title: "",
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setValue({
-      name: dialogValue.name,
+      title: dialogValue.title,
     });
     handleClose();
   };
@@ -50,13 +52,13 @@ export default function UserSelect({
             setTimeout(() => {
               toggleOpen(true);
               setDialogValue({
-                name: newValue,
+                title: newValue,
               });
             });
           } else if (newValue && newValue.inputValue) {
             toggleOpen(true);
             setDialogValue({
-              name: newValue.inputValue,
+              title: newValue.inputValue,
             });
           } else {
             onChange(newValue?.id);
@@ -69,14 +71,14 @@ export default function UserSelect({
           if (params.inputValue !== "") {
             filtered.push({
               inputValue: params.inputValue,
-              name: `Add "${params.inputValue}"`,
+              title: `Add "${params.inputValue}"`,
             });
           }
 
           return filtered;
         }}
         id="user-select"
-        options={users}
+        options={movies}
         getOptionLabel={(option) => {
           // e.g value selected with enter, right from the input
           if (typeof option === "string") {
@@ -85,36 +87,51 @@ export default function UserSelect({
           if (option.inputValue) {
             return option.inputValue;
           }
-          return option.name;
+          return option.title;
         }}
         selectOnFocus
         clearOnBlur
         handleHomeEndKeys
-        renderOption={(props, option) => <li {...props}>{option.name}</li>}
+        renderOption={(props, option) => <li {...props}>{option.title}</li>}
         freeSolo
         sx={sx}
         renderInput={(params) => (
-          <TextField key={params.id} {...params} label="Users" />
+          <TextField key={params.id} {...params} label="Films" />
         )}
       />
       <Dialog open={open} onClose={handleClose}>
         <form onSubmit={handleSubmit}>
-          <DialogTitle>Register User</DialogTitle>
+          <DialogTitle>Register Film</DialogTitle>
           <DialogContent>
             <DialogContentText>Fill the fields and save</DialogContentText>
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              value={dialogValue.name}
+              id="title"
+              value={dialogValue.title}
               onChange={(event) =>
                 setDialogValue({
                   ...dialogValue,
-                  name: event.target.value,
+                  title: event.target.value,
                 })
               }
-              label="name"
+              label="Title"
               type="text"
+              variant="outlined"
+            />
+             <TextField
+              autoFocus
+              margin="dense"
+              id="releaseDate"
+              value={dialogValue.title}
+              onChange={(event) =>
+                setDialogValue({
+                  ...dialogValue,
+                  releaseDate: event.target.value,
+                })
+              }
+              label="Date"
+              type="date"
               variant="outlined"
             />
           </DialogContent>
@@ -128,8 +145,9 @@ export default function UserSelect({
   );
 }
 
-interface UserOption {
+interface MovieOption {
   inputValue?: string;
   id?: string;
-  name: string;
+  title: string;
+  releaseDate?: string;
 }

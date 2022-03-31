@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import MovieSelect from "../../../components/form/MovieSelect";
 import NumberInput from "../../../components/form/NumberInput";
+import UserSelect from "../../../components/form/UserSelect";
 import { FormReview } from "../../../entities/review";
 import { useStateDispatch } from "../../../services/stateManagament/config/useDispatch";
 import { useStateSelector } from "../../../services/stateManagament/config/useSelector";
@@ -21,6 +22,8 @@ const RegisterReview = () => {
   const handleChange = (field: string) => (value: any) => {
     dispatch(fillform({ ...form, [`${field}`]: value }));
   };
+
+  console.log('form', form)
 
   const validateForm = (form: FormReview): undefined | { message: string } => {
     if (!form.title) return { message: "Title is a required field" };
@@ -70,13 +73,20 @@ const RegisterReview = () => {
         <NumberInput
           max={5}
           onChange={(value) => handleChange("rating")(value)}
-          sx={{ width: "50%" }}
+          sx={{ width: "33%" }}
         />
         <MovieSelect
           onChange={(value: any) => {
             handleChange("movieId")(value);
           }}
-          sx={{ width: "50%" }}
+          sx={{ width: "33%" }}
+        />
+
+        <UserSelect
+          onChange={(value: any) => {
+            handleChange("userId")(value);
+          }}
+          sx={{ width: "33%" }}
         />
       </Stack>
 
