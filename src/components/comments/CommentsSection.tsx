@@ -4,9 +4,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
 
 import { Comment } from "../../entities/comment";
+import Loading from "../helpers/Loading";
 
 const CommentsSection = ({ comments }: { comments: Comment[] }) => {
   const [open, setOpen] = useState(false);
+
   if (!open)
     return (
       <Box sx={{ margin: "0 5%" }}>
@@ -19,6 +21,14 @@ const CommentsSection = ({ comments }: { comments: Comment[] }) => {
         </IconButton>
       </Box>
     );
+
+  if (!comments && open)
+    return (
+      <Box sx={{ width: "100%", background: "RGBA(136,38,138,0.5)" }}>
+        <Loading />
+      </Box>
+    );
+
   return (
     <Box sx={{ width: "100%", background: "RGBA(136,38,138,0.5)" }}>
       <IconButton
@@ -31,7 +41,13 @@ const CommentsSection = ({ comments }: { comments: Comment[] }) => {
       </IconButton>
       <Stack direction="column" justifyContent="center" alignItems="center">
         {comments.map((comment) => (
-          <Paper sx={{ width: "80%", backgroundColor: "white" }}>
+          <Paper
+            sx={{
+              width: "80%",
+              backgroundColor: "white",
+              borderRadius: "10px",
+            }}
+          >
             <Typography variant="h6">{comment.title}</Typography>
             <Typography variant="body2">{comment.body}</Typography>
           </Paper>
