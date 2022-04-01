@@ -5,10 +5,13 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import StarIcon from "@mui/icons-material/Star";
 import Link from "next/link";
 import React from "react";
 
 import { Review } from "../../entities/review";
+import IconText from "../presenters/IconText";
 
 type props = {
   children?: JSX.Element;
@@ -64,32 +67,52 @@ class ReviewCard extends React.Component<props> {
           minHeight: "20rem",
           boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
           borderRadius: "10px",
+          margin: "5%",
+          padding: "1%",
         }}
       >
-        <CardContent>
-          <Typography sx={{ color: "black" }} variant="h5" component="div">
-            {this.props.review.title}
-          </Typography>
-          <Typography sx={{ color: "black" }} variant="h6" component="div">
-            {this.props.review.rating} Stars
-          </Typography>
-
+        <CardContent
+          sx={{
+            minHeight: "16rem",
+            overflow: "hidden",
+          }}
+        >
           <Typography sx={{ color: "black" }} variant="h6" component="div">
             {this.props.review.movie.title}
           </Typography>
+
+          <IconText
+            Icon={() => <VideocamIcon />}
+            text={this.props.review.title}
+            textProps={{
+              sx: { color: "black" },
+              variant: "h6",
+              component: "div",
+            }}
+          />
+
+          <IconText
+            Icon={() => <StarIcon />}
+            text={`${this.props.review.rating} stars`}
+            textProps={{
+              sx: { color: "black" },
+              variant: "h6",
+              component: "div",
+            }}
+          />
+
           <Typography variant="body2">{this.props.review.body}</Typography>
         </CardContent>
         <CardActions
           sx={{
             display: "flex",
             justifyContent: "center",
-            alignContent: "center",
-            width: "100%",
+            alignContent: "flex-end",
           }}
         >
-          <Link href={`/reviews/id=${this.props.review.id}`}>
-            <Button sx={{ color: "#002FA7" }} size="small">
-              Show More
+          <Link href={`/reviews/${this.props.review.id}`}>
+            <Button sx={{ width: "100%" }} variant="outlined" size="small">
+              Show more
             </Button>
           </Link>
         </CardActions>
