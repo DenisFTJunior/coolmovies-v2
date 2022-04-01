@@ -15,6 +15,7 @@ export default function SlideCards({
 
   React.useEffect(() => {
     if (itens) setLocalValue(itens.slice(0, 3));
+    console.log("localValue", localValue);
   }, [itens]);
 
   const handleNextItem = () => {
@@ -46,7 +47,7 @@ export default function SlideCards({
     >
       <TransitionGroup>
         {localValue.map((item) => (
-          <Collapse key={item}>{Card(item)}</Collapse>
+          <Collapse key={item.id}>{Card(item)}</Collapse>
         ))}
       </TransitionGroup>
       {NextItemButtons}
