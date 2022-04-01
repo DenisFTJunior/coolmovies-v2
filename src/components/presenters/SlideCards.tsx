@@ -4,6 +4,11 @@ import Collapse from "@mui/material/Collapse";
 import { TransitionGroup } from "react-transition-group";
 import { Stack } from "@mui/material";
 
+type LocalState = {
+  id?: string;
+  [key: string]: any;
+};
+
 export default function SlideCards({
   itens,
   Card,
@@ -11,7 +16,7 @@ export default function SlideCards({
   itens: [];
   Card: (item: any) => JSX.Element;
 }) {
-  const [localValue, setLocalValue] = React.useState([]);
+  const [localValue, setLocalValue] = React.useState<LocalState[]>([]);
 
   React.useEffect(() => {
     if (itens) setLocalValue(itens.slice(0, 3));
