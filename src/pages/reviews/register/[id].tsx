@@ -12,6 +12,7 @@ import NumberInput from "../../../components/form/NumberInput";
 import MovieSelect from "../../../components/form/MovieSelect";
 import Link from "next/link";
 import UserSelect from "../../../components/form/UserSelect";
+import Loading from "../../../components/helpers/Loading";
 
 const UpdateReview = (): JSX.Element => {
   const [error, setError] = useState<undefined | { message: string }>(
@@ -27,7 +28,8 @@ const UpdateReview = (): JSX.Element => {
     );
   const [review] = useReview(id);
 
-  if (!review)
+  if (!review) return <Loading />;
+  if (review.length === 0)
     return (
       <Stack
         direction="column"
@@ -37,7 +39,7 @@ const UpdateReview = (): JSX.Element => {
         spacing={4}
       >
         <Alert sx={{ width: "100%" }} variant="outlined" severity="warning">
-          Review not found
+          There are anyone review
         </Alert>
         <Link href="reviews/register">
           {" "}

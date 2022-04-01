@@ -23,8 +23,6 @@ const RegisterReview = () => {
     dispatch(fillform({ ...form, [`${field}`]: value }));
   };
 
-  console.log('form', form)
-
   const validateForm = (form: FormReview): undefined | { message: string } => {
     if (!form.title) return { message: "Title is a required field" };
     if (!form.body) return { message: "Body is a required field" };
