@@ -14,10 +14,10 @@ export default function SlideCards({
   const [localValue, setLocalValue] = React.useState([]);
 
   React.useEffect(() => {
-    if (itens) itens.slice(0, 3);
+    if (itens) setLocalValue(itens.slice(0, 3));
   }, [itens]);
 
-  const handleAddFruit = () => {
+  const handleNextItem = () => {
     const nextHiddenItem = itens.find((i) => !localValue.includes(i));
     if (nextHiddenItem) {
       setLocalValue((prev) => [nextHiddenItem, ...prev]);
@@ -28,7 +28,7 @@ export default function SlideCards({
     <Button
       variant="contained"
       disabled={localValue.length >= (itens?.length || 0)}
-      onClick={handleAddFruit}
+      onClick={handleNextItem}
       sx={{ alignSelf: "center", just: "center" }}
     >
       Next Item

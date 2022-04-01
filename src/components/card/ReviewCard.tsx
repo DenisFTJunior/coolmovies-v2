@@ -63,8 +63,8 @@ class ReviewCard extends React.Component<props> {
     return (
       <Card
         sx={{
-          minWidth: 275,
-          minHeight: "20rem",
+          width: 275,
+          height: "20rem",
           boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
           borderRadius: "10px",
           margin: "5%",
@@ -73,7 +73,7 @@ class ReviewCard extends React.Component<props> {
       >
         <CardContent
           sx={{
-            minHeight: "16rem",
+            height: "16rem",
             overflow: "hidden",
           }}
         >
