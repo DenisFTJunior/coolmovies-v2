@@ -5,18 +5,18 @@ import { ReviewVars } from "./schema/reviewQuery";
 
 const REVIEW_BY_ID_QUERY = gql`
   query MovieReview($id: UUID!) {
-    movieReviewById(id: $id) {
+    movieReview: movieReviewById(id: $id) {
       id
       body
       movieId
       rating
       title
-      movieByMovieId {
+      movie: movieByMovieId {
         id
         title
       }
       commentsByMovieReviewId {
-        nodes {
+        comments: nodes {
           title
           id
           body
@@ -42,7 +42,7 @@ const REVIEW_BY_NODE_ID_QUERY = gql`
         id
         title
       }
-      commentsQuery: commentsByMovieReviewId {
+      commentsByMovieReviewId {
         comments: nodes {
           title
           id

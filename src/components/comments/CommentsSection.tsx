@@ -24,13 +24,25 @@ const CommentsSection = ({ comments }: { comments: Comment[] }) => {
 
   if (!comments && open)
     return (
-      <Box sx={{ width: "100%", background: "RGBA(136,38,138,0.5)" }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: "32.5vh",
+          background: "rgba(136,38,138,0.5)",
+        }}
+      >
         <Loading />
       </Box>
     );
 
   return (
-    <Box sx={{ width: "100%", background: "RGBA(136,38,138,0.5)" }}>
+    <Box
+      sx={{
+        width: "100%",
+        height: "32.5vh",
+        backgroundColor: "rgba(136,38,138,0.5)",
+      }}
+    >
       <IconButton
         aria-label="Comment"
         size="large"

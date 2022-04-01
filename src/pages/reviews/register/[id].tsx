@@ -29,6 +29,7 @@ const UpdateReview = (): JSX.Element => {
   const [review] = useReview(id);
 
   if (!review) return <Loading />;
+  
   if (review.length === 0)
     return (
       <Stack

@@ -20,23 +20,36 @@ const ReviewPage = (): JSX.Element => {
   return (
     <>
       <Stack
-        sx={{ marginX: "5%" }}
-        justifyContent="center"
-        alignItems="center"
+        sx={{ marginX: "5%", width: "90%" }}
+        justifyContent="flex-start"
+        alignItems="flex-start"
         direction="column"
         spacing={4}
       >
-        <Typography variant="h5">{review.title}</Typography>
-        <IconText text={review.movie.name} Icon={() => <VideocamIcon />} />
-        <IconText text={review.rating} Icon={() => <StarIcon />} />
         <Stack
-          justifyContent="center"
-          alignItems="center"
-          sx={{ padding: "5%", border: "1px solid black", maxHeight: "70%" }}
+          direction="row"
+          justifyContent="space-between"
+          spacing={4}
+          sx={{ width: "100%" }}
         >
-          <Box sx={{ padding: "5%", border: "1px solid black" }}>
-            <Typography variant="body2">{review.body}</Typography>
-          </Box>
+          <Typography variant="h5">{review.title}</Typography>
+          <Stack direction="row" spacing={4}>
+            <IconText text={review.rating} Icon={() => <StarIcon />} />
+            <IconText text={review.movie.title} Icon={() => <VideocamIcon />} />
+          </Stack>
+        </Stack>
+        <Stack
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          sx={{
+            padding: "2%",
+            border: "1px solid black",
+            maxHeight: "70%",
+            width: "100%",
+            minHeight: "20rem",
+          }}
+        >
+          <Typography variant="body2">{review.body}</Typography>
         </Stack>
       </Stack>
       <CommentsSection comments={review.comments} />
