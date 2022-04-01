@@ -1,7 +1,5 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Collapse from "@mui/material/Collapse";
-import { TransitionGroup } from "react-transition-group";
 import { Stack } from "@mui/material";
 
 type LocalState = {
@@ -44,17 +42,13 @@ export default function SlideCards({
   return (
     <Stack
       direction="row"
-      alignItems="flex-start"
-      justifyContent="center"
-      sx={{ margin: "5%" }}
+      alignItems="center"
+      justifyContent="flex-start"
+      sx={{ margin: "5%", width: "100%" }}
       spacing={4}
       flexWrap="wrap"
     >
-      <TransitionGroup>
-        {localValue.map((item) => (
-          <Collapse key={item.id}>{Card(item)}</Collapse>
-        ))}
-      </TransitionGroup>
+      {localValue.map((item) => Card(item))}
       {NextItemButtons}
     </Stack>
   );

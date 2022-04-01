@@ -1,21 +1,27 @@
 import {
+  Box,
   Button,
   Card,
   CardActions,
   CardContent,
+  Stack,
   Typography,
 } from "@mui/material";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import StarIcon from "@mui/icons-material/Star";
 import Link from "next/link";
+import Image from "next/image";
+
 import React from "react";
 
 import { Review } from "../../entities/review";
 import IconText from "../presenters/IconText";
+import { withRouter } from "next/router";
 
 type props = {
   children?: JSX.Element;
-  review: Review | undefined;
+  review: Review ;
+  router: any;
 };
 
 class ReviewCard extends React.Component<props> {
@@ -60,6 +66,7 @@ class ReviewCard extends React.Component<props> {
           </CardActions>
         </Card>
       );
+      
     return (
       <Card
         sx={{
@@ -70,6 +77,7 @@ class ReviewCard extends React.Component<props> {
           margin: "5%",
           padding: "1%",
         }}
+        key={this.props.review.id}
       >
         <CardContent
           sx={{
@@ -77,9 +85,21 @@ class ReviewCard extends React.Component<props> {
             overflow: "hidden",
           }}
         >
-          <Typography sx={{ color: "black" }} variant="h6" component="div">
-            {this.props.review.movie.title}
-          </Typography>
+          <Stack direction="row" justifyContent="space-between">
+            <Typography sx={{ color: "black" }} variant="h6" component="div">
+              {this.props.review.movie.title}
+            </Typography>
+            <Box
+              sx={{ width: "10%" }}
+              onClick={() =>
+                this.props.router.push(
+                  `/reviews/register/${this.props.review.id}`
+                )
+              }
+            >
+              <Image src="/edit.svg" width="108px" height="108px"></Image>
+            </Box>
+          </Stack>
 
           <IconText
             Icon={() => <VideocamIcon />}
@@ -121,4 +141,4 @@ class ReviewCard extends React.Component<props> {
   }
 }
 
-export default ReviewCard;
+export default withRouter(ReviewCard);
