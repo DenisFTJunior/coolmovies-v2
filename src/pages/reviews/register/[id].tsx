@@ -1,7 +1,6 @@
 import { Alert, Button, Stack, TextField, Typography } from "@mui/material";
-import VideocamIcon from "@mui/icons-material/Videocam";
-import StarIcon from "@mui/icons-material/Star";
 import { useRouter } from "next/router";
+import React from "react";
 
 import { FormReview, Review } from "../../../entities/review";
 import { useReview } from "../../../services/stateManagament/reviews/helpers/useReviews";
@@ -12,8 +11,9 @@ import { useEffect, useState } from "react";
 import NumberInput from "../../../components/form/NumberInput";
 import MovieSelect from "../../../components/form/MovieSelect";
 import Link from "next/link";
+import UserSelect from "../../../components/form/UserSelect";
 
-const Review = (): JSX.Element | undefined => {
+const UpdateReview = (): JSX.Element => {
   const [error, setError] = useState<undefined | { message: string }>(
     undefined
   );
@@ -111,13 +111,20 @@ const Review = (): JSX.Element | undefined => {
         <NumberInput
           max={5}
           onChange={(value) => handleChange("rating")(value)}
-          sx={{ width: "50%" }}
+          sx={{ width: "33%" }}
         />
         <MovieSelect
           onChange={(value: any) => {
             handleChange("movieId")(value);
           }}
-          sx={{ width: "50%" }}
+          sx={{ width: "33%" }}
+        />
+
+        <UserSelect
+          onChange={(value: any) => {
+            handleChange("userId")(value);
+          }}
+          sx={{ width: "33%" }}
         />
       </Stack>
 
@@ -140,4 +147,4 @@ const Review = (): JSX.Element | undefined => {
   );
 };
 
-export default Review;
+export default UpdateReview;

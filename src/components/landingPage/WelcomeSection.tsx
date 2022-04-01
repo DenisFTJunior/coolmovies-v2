@@ -1,5 +1,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 import localImage from "../../../public/localImage.png";
@@ -7,7 +8,9 @@ import localImage from "../../../public/localImage.png";
 class WelcomeSection extends React.Component {
   render() {
     return (
-      <Box sx={{ width: "100%", height: { xs: "50vh",sm: "50vh", md: "90vh" } }}>
+      <Box
+        sx={{ width: "100%", height: { xs: "50vh", sm: "50vh", md: "90vh" } }}
+      >
         <Stack
           direction="row"
           justifyContent="center"
@@ -42,19 +45,21 @@ class WelcomeSection extends React.Component {
                 {" "}
                 Write. Read. Share Reviews
               </Typography>
-              <Button
-                sx={{
-                  justifySelf: "flex-end",
-                  width: { xs: "90%", sm: "90%", md: "80%", lg: "70%" },
-                  height: "4rem",
-                  marginTop: "10%",
-                  borderRadius: "10px",
-                }}
-                size="large"
-                variant="contained"
-              >
-                <Typography variant="button">WRITE YOUR REVIEW</Typography>
-              </Button>
+              <Link href="/reviews/register">
+                <Button
+                  sx={{
+                    justifySelf: "flex-end",
+                    width: { xs: "90%", sm: "90%", md: "80%", lg: "70%" },
+                    height: "4rem",
+                    marginTop: "10%",
+                    borderRadius: "10px",
+                  }}
+                  size="large"
+                  variant="contained"
+                >
+                  <Typography variant="button">WRITE YOUR REVIEW</Typography>
+                </Button>
+              </Link>
             </Stack>
           </Box>
           <Box

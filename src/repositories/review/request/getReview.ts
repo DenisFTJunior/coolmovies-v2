@@ -4,7 +4,7 @@ import { moviesClient } from "../../config/movieClient";
 import { ReviewVars } from "./schema/reviewQuery";
 
 const REVIEW_BY_ID_QUERY = gql`
-  query MovieReview($id: ID!) {
+  query MovieReview($id: UUID!) {
     movieReviewById(id: $id) {
       id
       body

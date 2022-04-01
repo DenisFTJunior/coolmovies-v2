@@ -1,13 +1,14 @@
 import { UnformattedReview } from "../../../../entities/review";
 
 export const one = (unformattedReview: UnformattedReview) => {
-  const comments = unformattedReview.movieReview.commentsQuery.comments.map(
-    (comment) => ({
-      id: comment.id,
-      title: comment.title,
-      body: comment.body,
-    })
-  );
+  const comments =
+    unformattedReview.movieReview.commentsByMovieReviewId.comments.map(
+      (comment) => ({
+        id: comment.id,
+        title: comment.title,
+        body: comment.body,
+      })
+    );
   return {
     id: unformattedReview.movieReview.id,
     title: unformattedReview.movieReview.title,
