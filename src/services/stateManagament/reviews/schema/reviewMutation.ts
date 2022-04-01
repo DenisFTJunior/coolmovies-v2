@@ -11,7 +11,7 @@ export type SaveReviewVars = {
 export type SaveReviewInput = {
   title: string;
   movieId: string;
-  userReviewerId: string;
+  userId: string;
   rating: number;
   body: string;
 };

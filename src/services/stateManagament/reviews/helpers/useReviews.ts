@@ -3,7 +3,6 @@ import { useStateSelector } from "../../config/useSelector";
 import { reviewsVars } from "../schema/reviewQuery";
 import { actions as reviewActions } from "../reviewSlice";
 import { useEffect, useState } from "react";
-import { Review } from "../../../../entities/review";
 
 const useReviews = (vars: reviewsVars) => {
   const dispatch = useStateDispatch();

@@ -20,14 +20,14 @@ const ReviewCards = () => {
         marginY: "2rem",
       }}
     >
-      {reviews?.map((review: Review) => {
-        <ReviewCard key={`${review.title}-${review.id}`} review={review} />;
-      })}
       {times(identity, 3 - reviews?.length > 0 ? 3 - reviews?.length : 0).map(
         (item, index) => (
           <ReviewCard key={index} review={undefined} />
         )
       )}
+      {reviews?.map((review: Review) => (
+        <ReviewCard key={`${review.title}-${review.id}`} review={review} />
+      ))}
       {!reviews &&
         times(identity, 3).map((item, index) => (
           <ReviewCard key={index} review={undefined} />

@@ -2,19 +2,20 @@ import { Box, Stack, Typography } from "@mui/material";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import StarIcon from "@mui/icons-material/Star";
 import { useRouter } from "next/router";
+import React from "react";
 
-import { Review } from "../../entities/review";
 import { useReview } from "../../services/stateManagament/reviews/helpers/useReviews";
 import IconText from "../../components/presenters/IconText";
 import CommentsSection from "../../components/comments/CommentsSection";
+import Loading from "../../components/helpers/Loading";
 
-const Review = (): JSX.Element | undefined => {
+const ReviewPage = (): JSX.Element => {
   const router = useRouter();
   const id = router.query.id;
   if (!id) return <></>;
   const [review] = useReview(id);
 
-  if (!review) return <Typography variant="h4"></Typography>;
+  if (!review) return <Loading />;
 
   return (
     <>
@@ -43,4 +44,4 @@ const Review = (): JSX.Element | undefined => {
   );
 };
 
-export default Review;
+export default ReviewPage;
