@@ -15,21 +15,35 @@ import UserSelect from "../../../components/form/UserSelect";
 import Loading from "../../../components/helpers/Loading";
 
 const UpdateReview = (): JSX.Element => {
-  const [error, setError] = useState<undefined | { message: string }>(
-    undefined
-  );
   const router = useRouter();
+  const dispatch = useStateDispatch();
   const id = router.query.id;
+  const reviewState = useStateSelector((state) => state.review);
+  const { fillform, updateReview } = reviewActions;
   if (!id)
     return (
       <Alert sx={{ width: "100%" }} variant="outlined" severity="warning">
         Its necessary to pass a valid id for edit any review
       </Alert>
     );
+
   const [review] = useReview(id);
 
+  const [error, setError] = useState<undefined | { message: string }>(
+    undefined
+  );
+
+  console.log("form", reviewState.form);
+  useEffect(() => {
+    dispatch(dispatch(fillform(review)));
+  }, []);
+
+  const handleChange = (field: string) => (value: any) => {
+    dispatch(fillform({ ...reviewState.form, [`${field}`]: value }));
+  };
+
   if (!review) return <Loading />;
-  
+
   if (review.length === 0)
     return (
       <Stack
@@ -40,7 +54,7 @@ const UpdateReview = (): JSX.Element => {
         spacing={4}
       >
         <Alert sx={{ width: "100%" }} variant="outlined" severity="warning">
-          There are anyone review
+          There aren't this review
         </Alert>
         <Link href="reviews/register">
           {" "}
@@ -54,18 +68,6 @@ const UpdateReview = (): JSX.Element => {
       </Stack>
     );
 
-  const { fillform, saveReview } = reviewActions;
-  const { form } = useStateSelector((state) => state.review);
-  const dispatch = useStateDispatch();
-
-  useEffect(() => {
-    dispatch(fillform(review));
-  }, []);
-
-  const handleChange = (field: string) => (value: any) => {
-    dispatch(fillform({ ...form, [`${field}`]: value }));
-  };
-
   const validateForm = (form: FormReview): undefined | { message: string } => {
     if (!form.title) return { message: "Title is a required field" };
     if (!form.body) return { message: "Body is a required field" };
@@ -75,9 +77,9 @@ const UpdateReview = (): JSX.Element => {
   };
 
   const handleClick = () => {
-    const error = validateForm(form);
+    const error = validateForm(review.form);
     if (!error) {
-      dispatch(saveReview(form));
+      dispatch(updateReview(review.form));
       router.replace("/");
     }
     setError(error);
@@ -101,6 +103,7 @@ const UpdateReview = (): JSX.Element => {
         label="Title"
         variant="outlined"
         sx={{ width: "100%" }}
+        value={reviewState.form.title}
         onChange={(e) => handleChange("title")(e.target.value)}
       />
 
@@ -115,11 +118,14 @@ const UpdateReview = (): JSX.Element => {
           max={5}
           onChange={(value) => handleChange("rating")(value)}
           sx={{ width: "33%" }}
+          value={reviewState.form.rating}
         />
+
         <MovieSelect
           onChange={(value: any) => {
             handleChange("movieId")(value);
           }}
+          initialValue={reviewState.form.movie}
           sx={{ width: "33%" }}
         />
 
@@ -127,6 +133,7 @@ const UpdateReview = (): JSX.Element => {
           onChange={(value: any) => {
             handleChange("userId")(value);
           }}
+          initialValue={reviewState.form.user}
           sx={{ width: "33%" }}
         />
       </Stack>
@@ -135,6 +142,7 @@ const UpdateReview = (): JSX.Element => {
         label="body"
         variant="outlined"
         sx={{ width: "100%" }}
+        value={reviewState.form.body}
         rows={4}
         multiline
         onChange={(e) => handleChange("body")(e.target.value)}
@@ -144,7 +152,7 @@ const UpdateReview = (): JSX.Element => {
         variant="contained"
         sx={{ alignSelf: "flex-end", width: "10%" }}
       >
-        Save
+        Update
       </Button>
     </Stack>
   );

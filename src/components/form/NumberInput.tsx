@@ -5,11 +5,12 @@ type LocalProps = {
   max?: number;
   min?: number;
   sx: Object;
+  value?: number;
   onChange: (v: number) => void;
 };
 
 type LocalState = {
-  localValue?: number;
+  localValue?: string | number;
 };
 
 class NumberInput extends React.Component<LocalProps, LocalState> {
@@ -18,7 +19,7 @@ class NumberInput extends React.Component<LocalProps, LocalState> {
     this.handleChange = this.handleChange.bind(this);
     this.replaceValue = this.replaceValue.bind(this);
 
-    this.state = { localValue: 0 };
+    this.state = { localValue: `${this.props.value}` || 0 };
   }
 
   replaceValue(value: number) {

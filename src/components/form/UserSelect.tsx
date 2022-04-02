@@ -14,11 +14,13 @@ const filter = createFilterOptions<UserOption>();
 export default function UserSelect({
   onChange,
   sx,
+  initialValue = null,
 }: {
   onChange: (v?: string) => void;
   sx: Object;
+  initialValue: any;
 }) {
-  const [value, setValue] = React.useState<UserOption | null>(null);
+  const [value, setValue] = React.useState<UserOption | null>(initialValue);
   const [open, toggleOpen] = React.useState(false);
   const [users, reload] = useUsers({});
 
@@ -78,7 +80,6 @@ export default function UserSelect({
         id="user-select"
         options={users}
         getOptionLabel={(option) => {
-          // e.g value selected with enter, right from the input
           if (typeof option === "string") {
             return option;
           }

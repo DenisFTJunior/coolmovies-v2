@@ -9,19 +9,26 @@ import Button from "@mui/material/Button";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import useUsers from "../../services/stateManagament/users/helpers/useUsers";
 import useMovies from "../../services/stateManagament/movies/helpers/useMovies";
+import { Movie } from "../../entities/movie";
 
 const filter = createFilterOptions<MovieOption>();
 
 export default function MovieSelect({
   onChange,
   sx,
+  initialValue = null,
 }: {
   onChange: (v?: string) => void;
   sx: Object;
+  initialValue?: any;
 }) {
-  const [value, setValue] = React.useState<MovieOption | null>(null);
+  const [value, setValue] = React.useState<MovieOption | null>(
+    initialValue
+  );
   const [open, toggleOpen] = React.useState(false);
   const [movies, reload] = useMovies({});
+
+  console.log('value', initialValue);
 
   const handleClose = () => {
     setDialogValue({
@@ -119,7 +126,7 @@ export default function MovieSelect({
               type="text"
               variant="outlined"
             />
-             <TextField
+            <TextField
               autoFocus
               margin="dense"
               id="releaseDate"
