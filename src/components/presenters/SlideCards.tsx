@@ -44,7 +44,6 @@ export default function SlideCards({
       alignItems="center"
       justifyContent="flex-start"
       sx={{ margin: "5%", width: "100%" }}
-      spacing={4}
       flexWrap="wrap"
     >
       {localValue.map((item) => Card(item))}

@@ -15,7 +15,6 @@ const ReviewCards = () => {
       justifyContent="center"
       alignItems="center"
       flexWrap="wrap"
-      spacing={4}
       sx={{
         width: "100%",
         marginY: "2rem",
