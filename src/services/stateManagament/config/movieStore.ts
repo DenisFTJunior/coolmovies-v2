@@ -6,13 +6,20 @@ import { moviesClient } from "../../../repositories/config/movieClient";
 import reviewReducer from "../reviews/reviewSlice";
 import movieReducer from "../movies/movieSlice";
 import userSlice from "../users/userSlice";
+import directorSlice from "../directors/DirectorSlice";
 
 //Epics
 import reviewEpics from "../reviews/reviewEpics";
 import movieEpics from "../movies/movieEpics";
 import userEpics from "../users/userEpics";
+import directorEpics from "../directors/directorEpics";
 
-const rootEpic = combineEpics(reviewEpics, movieEpics, userEpics);
+const rootEpic = combineEpics(
+  reviewEpics,
+  movieEpics,
+  userEpics,
+  directorEpics
+);
 
 const movieStore = (): EnhancedStore => {
   const epicMiddleware = createEpicMiddleware({
@@ -27,6 +34,7 @@ const movieStore = (): EnhancedStore => {
       review: reviewReducer,
       movie: movieReducer,
       user: userSlice,
+      director: directorSlice,
     },
   });
 
