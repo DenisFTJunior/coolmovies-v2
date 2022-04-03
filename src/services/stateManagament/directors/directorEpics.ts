@@ -1,8 +1,8 @@
 import { combineEpics } from "redux-observable";
 
-import { epicFetchUsers } from "./epics/epicUser";
+import { epicFetchDirectors } from "./epics/epicDirectors";
 import { epicSaveDirector } from "./epics/epicSaveDirector";
 
-const directorEpics = combineEpics(epicFetchUsers, epicSaveDirector);
+const directorEpics = combineEpics(epicFetchDirectors, epicSaveDirector);
 
 export default directorEpics;

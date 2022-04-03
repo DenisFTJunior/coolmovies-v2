@@ -7,7 +7,7 @@ import { RootState } from "../../config/schema/store";
 import DirectorRepository from "../../../../repositories/director/DirectorRepository";
 import DirectorFormatter from "../../../formatation/directors/DirectorFormatter";
 
-export const epicFetchUsers: Epic = (
+export const epicFetchDirectors: Epic = (
   action$: Observable<DirectorSliceAction["fetchDirectors"]>,
   state$: StateObservable<RootState>
 ) => {

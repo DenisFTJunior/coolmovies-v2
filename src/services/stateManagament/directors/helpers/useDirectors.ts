@@ -16,7 +16,7 @@ const useDirectors = (vars: DirectorsVars) => {
     action();
   }, []);
 
-  const stateDirector = useStateSelector((state) => state.user);
+  const stateDirector = useStateSelector((state) => state.director);
 
   return [stateDirector.fetchedDirector, action, stateDirector];
 };
