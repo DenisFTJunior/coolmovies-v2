@@ -31,6 +31,10 @@ const QUERY = gql`
           id
           title
         }
+        user: userByUserReviewerId {
+          id
+          name
+        }
         body
         id
         nodeId

@@ -15,6 +15,7 @@ export const one = (unformattedReview: UnformattedReview) => {
     body: unformattedReview.movieReview.body,
     rating: unformattedReview.movieReview.rating,
     movie: unformattedReview.movieReview.movie,
+    user: unformattedReview.movieReview.user,
     comments,
   };
 };

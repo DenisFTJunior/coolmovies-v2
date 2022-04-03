@@ -19,7 +19,11 @@ class NumberInput extends React.Component<LocalProps, LocalState> {
     this.handleChange = this.handleChange.bind(this);
     this.replaceValue = this.replaceValue.bind(this);
 
-    this.state = { localValue: `${this.props.value}` || 0 };
+    this.state = { localValue: 0 };
+  }
+
+  componentDidMount() {
+    this.setState({ localValue: this.props.value || 0 });
   }
 
   replaceValue(value: number) {

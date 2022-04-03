@@ -8,8 +8,8 @@ export const many = (unformattedReviews: UnformattedReviews): Review[] => {
       body: review.body,
       rating: review.rating,
       movie: review.movie,
+      user: review.user,
     };
   });
   return reviews;
 };
-

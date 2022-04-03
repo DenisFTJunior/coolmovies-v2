@@ -15,32 +15,32 @@ import UserSelect from "../../../components/form/UserSelect";
 import Loading from "../../../components/helpers/Loading";
 
 const UpdateReview = (): JSX.Element => {
+  const [error, setError] = useState<undefined | { message: string }>(
+    undefined
+  );
   const router = useRouter();
   const dispatch = useStateDispatch();
-  const id = router.query.id;
+  const id = router.query.id ? router.query.id : undefined;
   const reviewState = useStateSelector((state) => state.review);
   const { fillform, updateReview } = reviewActions;
+  const [review] = useReview(id);
+
+  console.log("form", reviewState.form);
+
+  useEffect(() => {
+    dispatch(fillform(review));
+  }, [review]);
+
+  const handleChange = (field: string) => (value: any) => {
+    dispatch(fillform({ ...reviewState.form, [`${field}`]: value }));
+  };
+
   if (!id)
     return (
       <Alert sx={{ width: "100%" }} variant="outlined" severity="warning">
         Its necessary to pass a valid id for edit any review
       </Alert>
     );
-
-  const [review] = useReview(id);
-
-  const [error, setError] = useState<undefined | { message: string }>(
-    undefined
-  );
-
-  console.log("form", reviewState.form);
-  useEffect(() => {
-    dispatch(dispatch(fillform(review)));
-  }, []);
-
-  const handleChange = (field: string) => (value: any) => {
-    dispatch(fillform({ ...reviewState.form, [`${field}`]: value }));
-  };
 
   if (!review) return <Loading />;
 

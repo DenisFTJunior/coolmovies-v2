@@ -1,6 +1,6 @@
 export type User = {
-  id: string;
-  nodeId: string;
+  id?: string;
+  nodeId?: string;
   name: string;
 };
 

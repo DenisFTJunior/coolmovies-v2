@@ -8,6 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import useUsers from "../../services/stateManagament/users/helpers/useUsers";
+import { User } from "../../entities/user";
 
 const filter = createFilterOptions<UserOption>();
 
@@ -20,9 +21,13 @@ export default function UserSelect({
   sx: Object;
   initialValue: any;
 }) {
-  const [value, setValue] = React.useState<UserOption | null>(initialValue);
+  const [value, setValue] = React.useState<UserOption | null>(null);
   const [open, toggleOpen] = React.useState(false);
   const [users, reload] = useUsers({});
+
+  React.useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   const handleClose = () => {
     setDialogValue({

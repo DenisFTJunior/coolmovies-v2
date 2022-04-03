@@ -15,6 +15,10 @@ const REVIEW_BY_ID_QUERY = gql`
         id
         title
       }
+      user: userByUserReviewerId {
+        id
+        name
+      }
       commentsByMovieReviewId {
         comments: nodes {
           title
@@ -41,6 +45,10 @@ const REVIEW_BY_NODE_ID_QUERY = gql`
       movie: movieByMovieId {
         id
         title
+      }
+      user: userByUserReviewerId {
+        id
+        name
       }
       commentsByMovieReviewId {
         comments: nodes {

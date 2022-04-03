@@ -1,5 +1,6 @@
 import { Comment } from "./comment";
 import { Movie } from "./movie";
+import { User } from "./user";
 
 export type Review = {
   id: string;
@@ -36,6 +37,7 @@ export type UnformattedReviews = {
         body: string;
         rating: number;
         movie: Movie;
+        user: User;
       }
     ];
   };
@@ -50,6 +52,8 @@ export type UnformattedReview = {
     rating: number;
 
     movie: Movie;
+
+    user: User;
 
     commentsByMovieReviewId: {
       comments: Comment[];

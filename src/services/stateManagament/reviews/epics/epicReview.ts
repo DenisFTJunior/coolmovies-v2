@@ -18,7 +18,6 @@ export const epicFetchReview: Epic = (
     filter(actions.fetchReview.match),
     switchMap(async (action) => {
       const { data, error } = await repository.getOne(action.payload);
-      console.log("data", data);
       if (error)
         return actions.loadReviewError({ error: "Sorry, cannot fetch data" });
       return actions.loadedReview({ data: formatter.one(data) });

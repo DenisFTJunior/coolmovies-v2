@@ -18,7 +18,6 @@ export default function SlideCards({
 
   React.useEffect(() => {
     if (itens) setLocalValue(itens.slice(0, 3));
-    console.log("localValue", localValue);
   }, [itens]);
 
   const handleNextItem = () => {
