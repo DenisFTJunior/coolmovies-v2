@@ -7,8 +7,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
+
 import useUsers from "../../services/stateManagament/users/helpers/useUsers";
-import { User } from "../../entities/user";
+import useSaveUsers from "../../services/stateManagament/users/helpers/useSaveUsers";
 
 const filter = createFilterOptions<UserOption>();
 
@@ -24,10 +25,15 @@ export default function UserSelect({
   const [value, setValue] = React.useState<UserOption | null>(null);
   const [open, toggleOpen] = React.useState(false);
   const [users, reload] = useUsers({});
+  const save = useSaveUsers();
 
   React.useEffect(() => {
     setValue(initialValue);
   }, [initialValue]);
+
+  const [dialogValue, setDialogValue] = React.useState({
+    name: "",
+  });
 
   const handleClose = () => {
     setDialogValue({
@@ -36,15 +42,10 @@ export default function UserSelect({
     toggleOpen(false);
   };
 
-  const [dialogValue, setDialogValue] = React.useState({
-    name: "",
-  });
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setValue({
-      name: dialogValue.name,
-    });
+    save({ name: dialogValue.name });
+
     handleClose();
   };
 
