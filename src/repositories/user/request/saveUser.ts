@@ -15,7 +15,7 @@ const saveUser = (input: SaveUserVars) =>
   moviesClient.mutate({
     mutation: SAVE_USER_MUTATION,
     variables: { input },
-    refetchQueries: ["Movie", "Movies"],
+    refetchQueries: ["Users"],
   });
 
 export default saveUser;
