@@ -120,6 +120,7 @@ const UpdateReview = (): JSX.Element => {
       >
         <NumberInput
           max={5}
+          min={0}
           onChange={(value) => handleChange("rating")(value)}
           sx={{ width: "33%" }}
           value={reviewState.form.rating}

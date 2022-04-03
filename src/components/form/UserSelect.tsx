@@ -19,7 +19,7 @@ export default function UserSelect({
 }: {
   onChange: (v?: string) => void;
   sx: Object;
-  initialValue: any;
+  initialValue?: any;
 }) {
   const [value, setValue] = React.useState<UserOption | null>(null);
   const [open, toggleOpen] = React.useState(false);

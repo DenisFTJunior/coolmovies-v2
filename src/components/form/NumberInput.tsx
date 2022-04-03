@@ -13,17 +13,17 @@ type LocalState = {
   localValue?: string | number;
 };
 
-class NumberInput extends React.Component<LocalProps, LocalState> {
+class NumberInput extends React.PureComponent<LocalProps, LocalState> {
   constructor(props: LocalProps) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.replaceValue = this.replaceValue.bind(this);
 
-    this.state = { localValue: 0 };
+    this.state = { localValue: this.props.value || 0 };
   }
 
-  componentDidMount() {
-    this.setState({ localValue: this.props.value || 0 });
+  componentDidUpdate() {
+    this.setState({ localValue: this.props.value });
   }
 
   replaceValue(value: number) {

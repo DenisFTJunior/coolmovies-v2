@@ -34,7 +34,7 @@ class ReviewCard extends React.Component<props> {
             minHeight: "20rem",
             boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
             borderRadius: "10px",
-            marginX: '1rem',
+            marginX: "1rem",
             marginY: "1rem",
             padding: "1%",
           }}
