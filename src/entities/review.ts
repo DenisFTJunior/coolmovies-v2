@@ -4,6 +4,7 @@ import { User } from "./user";
 
 export type Review = {
   id: string;
+  nodeId?: string;
   title: string;
   body: string;
   rating: number;
@@ -30,24 +31,22 @@ export type UnformattedReviews = {
       hasNextPage: boolean;
       hasPreviousPage: boolean;
     };
-    reviews: [
-      {
-        id: string;
-        nodeId: string;
-        title: string;
-        body: string;
-        rating: number;
-        movie: Movie;
-        user: User;
-      }
-    ];
+    reviews: {
+      id: string;
+      nodeId?: string;
+      title: string;
+      body: string;
+      rating: number;
+      movie: Movie;
+      user: User;
+    }[];
   };
 };
 
 export type UnformattedReview = {
   movieReview: {
     id: string;
-    nodeId: string;
+    nodeId?: string;
     title: string;
     body: string;
     rating: number;
