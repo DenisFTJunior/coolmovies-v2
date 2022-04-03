@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 
 import ReviewCard from "../../components/card/ReviewCard";
@@ -8,7 +9,16 @@ const Reviews = () => {
   const [reviews] = useReviews({});
 
   return (
-    <SlideCards itens={reviews} Card={(item) => <ReviewCard review={item} />} />
+    <Box sx={{ margin: "5%" }}>
+      {" "}
+      <Typography variant="h4" component="div">
+        Reviews
+      </Typography>
+      <SlideCards
+        itens={reviews}
+        Card={(item) => <ReviewCard review={item} />}
+      />
+    </Box>
   );
 };
 

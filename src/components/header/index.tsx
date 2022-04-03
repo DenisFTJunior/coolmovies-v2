@@ -1,7 +1,7 @@
-import { AppBar, Button, Stack, Toolbar, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import Link from "next/link";
+import { AppBar, Stack, Toolbar, Typography } from "@mui/material";
 import React from "react";
+
+import SideMenu from "./SideMenu";
 
 class Header extends React.Component {
   render() {
@@ -17,18 +17,7 @@ class Header extends React.Component {
             <Typography fontWeight={900} variant="h6">
               COOLESTMOVIES
             </Typography>
-            <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-              <Link href="/">
-                <Button size="small" color="secondary">
-                  Home
-                </Button>
-              </Link>
-              <Link href="/reviews">
-                <Button size="small" color="secondary">
-                  Reviews
-                </Button>
-              </Link>
-            </Box>
+            <SideMenu />
           </Stack>
         </Toolbar>
       </AppBar>
