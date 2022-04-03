@@ -27,6 +27,7 @@ class NumberInput extends React.Component<LocalProps, LocalState> {
   }
 
   replaceValue(value: number) {
+    value = typeof value === "number" ? value : parseInt(value);
     if (this.props.max !== undefined && value > this.props.max)
       return this.props.max;
     if (this.props.min !== undefined && value < this.props.min)

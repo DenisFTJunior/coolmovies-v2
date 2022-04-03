@@ -25,10 +25,14 @@ const UpdateReview = (): JSX.Element => {
   const { fillform, updateReview } = reviewActions;
   const [review] = useReview(id);
 
-  console.log("form", reviewState.form);
-
   useEffect(() => {
-    dispatch(fillform(review));
+    dispatch(
+      fillform({
+        ...review,
+        movieId: review?.movie.id,
+        userId: review?.user.id,
+      })
+    );
   }, [review]);
 
   const handleChange = (field: string) => (value: any) => {
@@ -77,9 +81,9 @@ const UpdateReview = (): JSX.Element => {
   };
 
   const handleClick = () => {
-    const error = validateForm(review.form);
+    const error = validateForm(reviewState.form);
     if (!error) {
-      dispatch(updateReview(review.form));
+      dispatch(updateReview(reviewState.form));
       router.replace("/");
     }
     setError(error);

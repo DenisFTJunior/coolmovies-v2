@@ -4,7 +4,7 @@ import { moviesClient } from "../../config/movieClient";
 import { UpdateReviewVars } from "./schema/reviewMutation";
 
 const UPDATE_REVIEW_BY_ID_MUTATION = gql`
-  mutation UpdateMovieReviewById($input: UpdateMovieReviewByIdInput) {
+  mutation UpdateMovieReviewById($input: UpdateMovieReviewByIdInput!) {
     updateMovieReviewById(input: $input) {
       id: clientMutationId
     }
@@ -12,7 +12,7 @@ const UPDATE_REVIEW_BY_ID_MUTATION = gql`
 `;
 
 const UPDATE_REVIEW_BY_NODEID_MUTATION = gql`
-  mutation updateMovieReview($input: UpdateMovieReviewInput) {
+  mutation updateMovieReview($input: UpdateMovieReviewInput!) {
     updateMovieReview(input: $input) {
       id: clientMutationId
     }

@@ -20,6 +20,7 @@ export type FormReview = {
   rating?: number;
 
   movieId?: string;
+  userId?: string;
 };
 
 export type UnformattedReviews = {

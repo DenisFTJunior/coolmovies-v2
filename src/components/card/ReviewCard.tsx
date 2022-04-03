@@ -20,7 +20,7 @@ import { withRouter } from "next/router";
 
 type props = {
   children?: JSX.Element;
-  review: Review ;
+  review: Review;
   router: any;
 };
 
@@ -66,7 +66,7 @@ class ReviewCard extends React.Component<props> {
           </CardActions>
         </Card>
       );
-      
+
     return (
       <Card
         sx={{
@@ -86,8 +86,8 @@ class ReviewCard extends React.Component<props> {
           }}
         >
           <Stack direction="row" justifyContent="space-between">
-            <Typography sx={{ color: "black" }} variant="h6" component="div">
-              {this.props.review.movie.title}
+            <Typography sx={{ color: "black" }} variant="h5" component="div">
+              {this.props.review.title}
             </Typography>
             <Box
               sx={{ width: "10%" }}
@@ -103,7 +103,7 @@ class ReviewCard extends React.Component<props> {
 
           <IconText
             Icon={() => <VideocamIcon />}
-            text={this.props.review.title}
+            text={this.props.review.movie.title}
             textProps={{
               sx: { color: "black" },
               variant: "h6",
