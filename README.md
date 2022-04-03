@@ -1,41 +1,46 @@
-# Coolmovies web challenge
+# Coolmovies feature
 
-You have to add the cool movies review feature to the existing `coolmovies-frontend`.
-
-We have created a basic app for you to get started in.
-
-What tooling has been setup for you:
+> ## Tecnology
 
 - [Next.js](https://nextjs.org/) (Build Framework)
 - [MUI](https://mui.com/) (Component Library)
 - [Redux Toolkit](https://redux-toolkit.js.org/) (State Management)
 - [Redux-Observable](https://redux-observable.js.org/) (State Side-effect Middleware)
 - [Apollo GraphQL](https://www.apollographql.com/) (GraphQL Query Client)
+- [Ramda](https://ramdajs.com/) (A practical functional library for JavaScript programmers.)
 
-You must use these tools to complete the test. If you're unfamiliar with any of these, please read their documentation. We have also added some example code for the ideal patterns we would like to see. Have a look at `pages/index.tsx`.
+> ## Paradigm and design
 
-We are providing you a GraphQL API mock application to consume.
+- DDD (Design driven development)
+- OO (Object Oriented)
+- FP (Functional Programing)
 
-## Acceptance Criteria
+### Folders
 
-**You will be evaluated on your UI/UX as we believe this is an important skill to have. Please put time and effort into this.**
+- Repositories (any connection with backend is where)
+- Entities (the entities of the system. Ex.: Review)
+- Components (some visual stuff who was businnes role for specific page or its reusable)
+- Services (Logical and handlers)
+- Test (jest tests)
+- Pages (next pages)
 
-There are 2 main components that must be developed for this feature: (You have flexibility on the UI/UX for this)
+Notes
 
-1. Listing of the movie reviews.
-2. Editing the existing movie reviews.
-3. Adding additional reviews.
+- Mixed FP with OO in componets because its more interesting in some cases use OO or FP
+- The design is a challange for me, I never utilised DDD until
 
-The feature must be available on the `/reviews` endpoint of the application.
+> ## Challanges
 
-The design must be responsive.
+- The principal challenge is mix REDUX-OBSERVABLE in my work
+- Because the redux-observable I be not permited to use hooks to fetch data so the proccess change to a more complex solution
+- Test is my weakness but I study and learn a lot, but I've more and more to learn, if you have any tip I thank
 
-You will be evaluated against your ability to understand and use the tooling provided and mimic existing patterns that are shown in the examples.
+> ## Issues
 
-There are a couple of additional things that we would like to see in your submission.
+- This one thing a can't fix, in the first load of next the component don't actualize even though the state change, if follow the flow of page the bug only occurs in the landing Page
 
-1. Our designers don't like the default MUI blue. Please change this.
-2. Make the proxied GraphQL URL an environment variable.
-3. Improve the folder structure of the frontend application how you see fit. (It's intentionally not great)
-4. Add the custom `edit.svg` from the `public` folder as an icon to launch editing the review.
-5. Add a unit testing framework of your choice, and some unit tests around the more complex areas of your code.
+
+> ## Final notes
+- Your enterprise is incrible and your mission is passionate 
+- I appreciate this opportunity and thanks you for review!
+- If possible send me the problems with the code because I want to improve and be better!
