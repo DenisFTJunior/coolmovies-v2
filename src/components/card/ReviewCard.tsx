@@ -20,7 +20,7 @@ import { withRouter } from "next/router";
 
 type props = {
   children?: JSX.Element;
-  review: Review;
+  review: Review | undefined;
   router: any;
 };
 
@@ -34,7 +34,6 @@ class ReviewCard extends React.Component<props> {
             minHeight: "20rem",
             boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
             borderRadius: "10px",
-            marginX: { xs: "2rem", sm: "2rem", md: "2rem" },
             marginY: "1rem",
             padding: "1%",
           }}
@@ -74,7 +73,6 @@ class ReviewCard extends React.Component<props> {
           height: "20rem",
           boxShadow: "0px 4px 4px #88268A, inset 0px 4px 4px #88268A",
           borderRadius: "10px",
-          margin: "5%",
           padding: "1%",
         }}
         key={this.props.review.id}
@@ -93,7 +91,7 @@ class ReviewCard extends React.Component<props> {
               sx={{ width: "10%" }}
               onClick={() =>
                 this.props.router.push(
-                  `/reviews/register/${this.props.review.id}`
+                  `/reviews/register/${this.props.review?.id}`
                 )
               }
             >

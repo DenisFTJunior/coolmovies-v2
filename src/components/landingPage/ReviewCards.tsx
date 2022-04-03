@@ -7,7 +7,7 @@ import { Stack } from "@mui/material";
 import useReviews from "../../services/stateManagament/reviews/helpers/useReviews";
 
 const ReviewCards = () => {
-  const [reviews] = useReviews({});
+  const [reviews] = useReviews({ first: 4 });
 
   return (
     <Stack
@@ -15,12 +15,13 @@ const ReviewCards = () => {
       justifyContent="center"
       alignItems="center"
       flexWrap="wrap"
+      spacing={4}
       sx={{
         width: "100%",
         marginY: "2rem",
       }}
     >
-      {times(identity, 3 - reviews?.length > 0 ? 3 - reviews?.length : 0).map(
+      {times(identity, 4 - reviews?.length > 0 ? 4 - reviews?.length : 0).map(
         (item, index) => (
           <ReviewCard key={index} review={undefined} />
         )
@@ -29,7 +30,7 @@ const ReviewCards = () => {
         <ReviewCard key={`${review.title}-${review.id}`} review={review} />
       ))}
       {!reviews &&
-        times(identity, 3).map((item, index) => (
+        times(identity, 4).map((item, index) => (
           <ReviewCard key={index} review={undefined} />
         ))}
     </Stack>
