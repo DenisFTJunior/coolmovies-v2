@@ -37,7 +37,7 @@ Notes
 
 > ## Issues
 
-- This one thing a can't fix, in the first load of next the component don't actualize even though the state change, if follow the flow of page the bug only occurs in the landing Page
+- This one thing a can't fix now, in the first load of next the component don't actualize even though the state change, if follow the flow of page the bug only occurs in the landing Page
 
 
 > ## Final notes
