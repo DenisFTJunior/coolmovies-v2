@@ -11,7 +11,7 @@ const CommentsSection = ({ comments }: { comments: Comment[] }) => {
 
   if (!open)
     return (
-      <Box sx={{ margin: "0 5%" }}>
+      <Stack sx={{ margin: "0 5%" }} direction="row" justifyContent="flex-end">
         <IconButton
           aria-label="Comment"
           size="large"
@@ -19,7 +19,7 @@ const CommentsSection = ({ comments }: { comments: Comment[] }) => {
         >
           <CommentIcon />
         </IconButton>
-      </Box>
+      </Stack>
     );
 
   if (!comments && open)
@@ -52,6 +52,9 @@ const CommentsSection = ({ comments }: { comments: Comment[] }) => {
         <CloseIcon />
       </IconButton>
       <Stack direction="column" justifyContent="center" alignItems="center">
+        {comments.length <= 0 && (
+          <Typography variant="h6">Anyone comment found</Typography>
+        )}
         {comments.map((comment) => (
           <Paper
             sx={{
