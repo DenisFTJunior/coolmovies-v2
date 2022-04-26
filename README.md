@@ -33,7 +33,7 @@ Notes
 
 - The principal challenge is mix REDUX-OBSERVABLE in my work
 - Because the redux-observable I be not permited to use hooks to fetch data so the proccess change to a more complex solution
-- Test is my weakness but I study and learn a lot, but I've more and more to learn, if you have any tip I thank
+- Test is my weakness so I studied and learn a lot, but I've more and more to learn, if you have any tip I thank
 
 > ## Issues
 
