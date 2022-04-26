@@ -41,6 +41,4 @@ Notes
 
 
 > ## Final notes
-- Your enterprise is incrible and your mission is passionate 
-- I appreciate this opportunity and thanks you for review!
-- If possible send me the problems with the code because I want to improve and be better!
+- Hey, I would like i feedback for selfImprovement, thanks!!!
